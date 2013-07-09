@@ -26,6 +26,8 @@ app.get('/log/add', lib.logger.add);
 app.get('/log/clear', lib.logger.clear);
 app.get('/log/test', lib.logger.test);
 
-database.getConnection( function( err, db ) {
-console.log( db );
+database.find('users', { 'username': 'kevin' }, function( err, users ) {
+
+console.log( users );
+
 });

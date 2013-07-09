@@ -1,18 +1,18 @@
 var MongoClient = require('mongodb').MongoClient
 
-var database = {
-	
-	getConnection : function(func) {
-		MongoClient.connect('mongodb://127.0.0.1:27017/test', function(err, db) {
-			if( err ) { 
-				func( err, null ); 
-			} else {
-				func( null, db );
-			}
-		});
-	},
+var getConnection = function(func) {
+	MongoClient.connect('mongodb://appKhronos:khronos@localhost:27017/kronus', function(err, db) {
+		if( err ) { 
+			func( err, null ); 
+		} else {
+			func( null, db );
+		}
+	});
+};
 
-	getCollection : function( collectionName, func ) {
+var database = {
+
+	find : function( collectionName, query, func ) {
 
 		getConnection( function(err, db) {
 			if( err ) {
@@ -21,9 +21,9 @@ var database = {
 
 			var collection = db.collection(collectionName);
 
-			func( err, collection );
-		})
-	}
+			collection.find(query).toArray(func);
+		});
+	},
 }
 
 module.exports = database
