@@ -37,13 +37,15 @@ header{
 *[data-property]{
 	display:block;
 	position:relative;
-	margin-top:20px;
+	margin-top:12px;
 }
 
 *[data-property]:before{
 	content: attr(data-property);
 	display:block;
 	position:relative;
+	font-size:.8em;
+	width:100px;
 }
 
 input[type="checkbox"][data-property]:before{
@@ -55,26 +57,58 @@ input[type="checkbox"][data-property]:after{
 	display:block;
 	position:relative;	
 	margin-left:20px;
+	width:150px;
+}
+
+input[type="text"], textarea{
+	width:260px;
+}
+
+textarea{
+	height:100px;
+}
+
+.edit, .release{
+	box-sizing:border-box;
+	padding:20px;
+	border-radius:10px;
+	border:1px solid #eeeeee;
+	width:90%;
+	margin:0 5%;
+}
+
+.edit h2, .release h2{
+	margin-bottom:10px;
+}
+
+.edit > div{
+	display:inline-block;
+	vertical-align: top;
+	margin:0 10px;
+}
+
+.edit > div > *:not(h3){
+	margin-left:10px;
 }
 
 .edit .icon{
 	background-size:cover;
 	background-repeat:no-repeat;
+	margin-top:25px;
 	width:50px;
 	height:50px;
 	background-color:#aaaaaa;
 }
 
 .edit .icon:before{
-	content:"";
+	content: attr(data-property);
+	display: block;
+	height: 30px;
+	position: absolute;
+	top: -18px;
 }
 
-.edit .icon:after{
-	content: attr(data-property);
-	display:block;
-	position:relative;	
-	margin-left:60px;
-}
+
 
 /*** APP LIST AND THINGS ***/
 
