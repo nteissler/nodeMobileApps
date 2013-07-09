@@ -1,4 +1,4 @@
 module.exports = function (request, response)
 {
-    response.end('hello world');
+    response.end('MOBILE APPS ARE AWESOME');
 }
