@@ -2,6 +2,7 @@ var express = require('express');
 var routes = require('./routes');
 var lib = require('./lib');
 
+var database = lib.database; 
 var app = express();
 var http = require('http');
 var server = http.createServer(app);

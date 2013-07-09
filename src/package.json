@@ -27,7 +27,8 @@
     "express"   :  "*",
     "socket.io" :  "*",
     "ejs"       :  "*",
-    "require-directory"    :  "*"
+    "require-directory"    :  "*",
+    "mongodb"   :  "*"
   },
   "analyze": false,
   "license": "MIT",
