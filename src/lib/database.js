@@ -12,20 +12,33 @@ var getConnection = function(func) {
 	});
 };
 
+var getCollection = function(collectionName, func) {
+	getConnection(function(err,db){
+		if(err) {
+			func(err,null);
+		} else {
+			db.collection(collectionName, func);
+		}
+	})
+};
+
 var database = {
 
+	collection : function( name, func ) {
+		getCollection(name, func);
+	},
+
 	find : function( collectionName, query, func ) {
-
-		getConnection( function(err, db) {
-			if( err ) {
-				return func( err, null );
-			}
-
-			var collection = db.collection(collectionName);
-
+		getCollection(collectionName, function(err,collection){
 			collection.find(query).toArray(func);
 		});
 	},
+
+	insert : function( collectionName, document, func ) {
+		getCollection(collectionName, function(err,collection){
+			collection.insert(document,func);
+		});
+	}
 }
 
 module.exports = database
