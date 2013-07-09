@@ -1,0 +1,37 @@
+{
+  "name": "app_name",
+  "preferGlobal": false,
+  "version": "0.1.0",
+  "author": "IT Strategy",
+  "description": "application description goes here",
+  "contributors": [ 
+    
+  ],
+  
+  "scripts": {
+    "start": "node ./bin/http-server",
+    "test": "vows --spec --isolate",
+    "predeploy": "echo This will be run before deploying the app",
+    "postdeploy": "echo This will be run after deploying the app"
+  },
+  "main": "./lib/logger",
+  "repository": {
+    "type": "git",
+    "url": "https://EAStrategy@bitbucket.org/EAStrategy/weblogger-node.git"
+  },
+  "keywords": [
+    "log",
+    "logger"
+  ],
+  "dependencies" : {
+    "express"   :  "*",
+    "socket.io" :  "*",
+    "ejs"       :  "*",
+    "require-directory"    :  "*"
+  },
+  "analyze": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8"
+  }
+}
