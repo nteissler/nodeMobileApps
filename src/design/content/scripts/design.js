@@ -1,3 +1,7 @@
 $(document).ready(function(){
-	//make code here
+	
+	$(".list .app *:not(button)").on("touchstart mousedown", function(e){
+		$(".wrapper").addClass("app-view");
+	});
+
 })
