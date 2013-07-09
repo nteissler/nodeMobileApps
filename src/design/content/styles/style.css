@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Muli);
+
 /* CSS */
 
 html, body{
@@ -14,6 +16,7 @@ body{
 h1,h2,h3,h4,h5,h6{
 	margin:0;
 	padding:0;
+	font-family: "Muli";
 }
 
 a{
@@ -81,10 +84,12 @@ input[type="checkbox"][data-property]:after{
 }
 
 .list .app{
-	padding-left:60px;
+	padding-left:70px;
 	background-size:auto 100%;
 	background-position:0 0;
-	margin:0px 0px 15px 0;
+	background-repeat:no-repeat;
+	margin:0px 0px 15px 15px;
+	background-image: url(../images/app-icon.png) !important; /* remove this */
 }
 
 .wrapper > .app{
@@ -118,12 +123,14 @@ input[type="checkbox"][data-property]:after{
 }
 
 .wrapper > .app h2.image{
-	padding-left:50px;
+	padding-left:60px;
 	padding-top:10px;
 	height:50px;
 	box-sizing:border-box;
 	background-size:auto 100%;
 	background-position:0 0;
+	background-repeat:no-repeat;
+	background-image: url(../images/app-icon.png) !important; /* remove this */
 }
 
 .app .version {
@@ -142,6 +149,10 @@ input[type="checkbox"][data-property]:after{
 
 .releases .release.active button{
 	display:block;
+}
+
+.releases .release{
+	margin:10px 0 10px 10px;
 }
 
 .releases .release .notes{
