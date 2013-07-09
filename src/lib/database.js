@@ -38,6 +38,12 @@ var database = {
 		getCollection(collectionName, function(err,collection){
 			collection.insert(document,func);
 		});
+	},
+
+	update : function(collectionName,document,func) {
+		getCollection(collectionName, function(err,collection){
+			collection.save(document,func);
+		});
 	}
 }
 
