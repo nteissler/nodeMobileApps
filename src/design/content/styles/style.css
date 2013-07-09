@@ -93,6 +93,9 @@ input[type="checkbox"][data-property]:after{
 	top:0;
 	left:0;
 	width:100%;
+	height:100%;
+	box-sizing:border-box;
+	padding-left:30px;
 	-webkit-transition: -webkit-transform .5s;
 	-moz-transition: -moz-transform .5s;
 	-o-transition: -o-transform .5s;
@@ -114,3 +117,40 @@ input[type="checkbox"][data-property]:after{
 	transform: translate3d(0, 0, 0);
 }
 
+.wrapper > .app h2.image{
+	padding-left:50px;
+	padding-top:10px;
+	height:50px;
+	box-sizing:border-box;
+	background-size:auto 100%;
+	background-position:0 0;
+}
+
+.app .version {
+	font-weight:bold;
+	font-size:.8em;
+}
+
+.app .release .notes{
+	padding:10px;
+	box-sizing:border-box;
+}
+
+.releases .release.active .notes{
+	max-height:300px;
+}
+
+.releases .release.active button{
+	display:block;
+}
+
+.releases .release .notes{
+	padding:0;
+	max-height:0px;
+	-webkit-transition: max-height .4s;
+	overflow:hidden;
+}
+
+.releases .release button{
+	display:none;
+}
