@@ -16,7 +16,7 @@ server.listen(port);
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').__express);
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 app.use("/design", express.static(__dirname + '/design'));
 
 app.get('/', routes.home);
