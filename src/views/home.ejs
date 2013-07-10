@@ -18,7 +18,7 @@
 <body>
 
 	<header>
-		<h1>mobile apps</h1>
+		<h1>mobile<span>apps</span></h1>
 	</header>
 
 	<nav id="nav">		
@@ -40,7 +40,7 @@
 				<div class="version"><%= apps[i].current != null ? apps[i].current.version : 'No releases' %></div>
 				<button class="admin">Edit</button>
 				<button class="admin">New Version</button>
-				<button>Install</button>
+				<button class="install">Install</button>
 			</div>
 			<% } %>
 		</div>
