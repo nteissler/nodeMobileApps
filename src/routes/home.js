@@ -1,8 +1,9 @@
 var database = require('../lib').database;
 
-module.exports = function (request, response)
+module.exports = function (request, response, next)
 {
-	database.find('apps', {}, function(err,results){
-		response.json(200, results);
+	database.find( 'apps', {}, function(err, apps){
+		console.log( 'Rendering apps');
+		response.render('index', {apps: apps});
 	});
 }
