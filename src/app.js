@@ -30,8 +30,6 @@ app.get('/upload',routes.upload.form);
 app.post('/upload/new',
 	routes.upload.submit(app.get('localAppFolder'),
 						app.get('localIconFolder')));
-app.post('/upload/update',
-	routes.upload.update(app.get('localAppFolder')));
 
 app.get('/api/seed', api.seed);
 app.get('/api/apps', api.apps);
