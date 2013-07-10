@@ -371,6 +371,10 @@ textarea{
 	font-family:"Proxima Nova Bold";
 }
 
+.wrapper > .app > .release{
+	margin:1em 0;
+}
+
 @media screen and (max-width: 42em) {
 	.wrapper > .app  nav.admin{
 		padding:1em 0;
