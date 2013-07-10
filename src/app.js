@@ -32,7 +32,7 @@ app.get('/api/seed', function(req,res,next){
 	{
 		name : 'App 1',
 		description : 'foo',
-		icon : '',
+		icon : '/images/app-icon.png',
 		platform : 'iPhone',
 		clientWorkingGroup : 'TEN',
 		isDevelopment : true,
@@ -41,7 +41,7 @@ app.get('/api/seed', function(req,res,next){
 	{
 		name : 'App 2',
 		description : 'bar',
-		icon : '',
+		icon : '/images/app-icon.png',
 		platform : 'iPad',
 		clientWorkingGroup : 'TEN',
 		isDevelopment : false,
@@ -50,7 +50,7 @@ app.get('/api/seed', function(req,res,next){
 	{
 		name : 'App 3',
 		description : 'foz',
-		icon : '',
+		icon : '/images/app-icon.png',
 		platform : 'android',
 		clientWorkingGroup : 'TEN',
 		isDevelopment : true,		
