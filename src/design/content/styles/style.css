@@ -84,14 +84,15 @@ a{
 button{
 	border-radius:0;
 	border:0px;
-	padding:4px 8px;
+	padding:4px 12px;
 	background:#282828;
 	color:#ffffff;
+	font-size:1em;
 }
 
 button.install{
 	font-family:"Proxima Nova Bold";
-	padding:4px 25px;
+	padding:4px 35px;
 }
 
 button.close{
@@ -221,10 +222,8 @@ textarea{
 	-moz-box-sizing:border-box;
 	-ms-box-sizing:border-box;
 	box-sizing:border-box;
-	padding-left:5em;
-	-webkit-background-size:auto 60px;
-	-moz-background-size:auto 60px;
-	background-size:auto 4em;
+	padding-left:5.5em;
+	background-size:auto 4.5em;
 	background-position:.5em .5em;
 	background-repeat:no-repeat;
 	margin:0px 0px 15px 2%;
