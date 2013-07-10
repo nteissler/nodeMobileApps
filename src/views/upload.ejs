@@ -29,24 +29,34 @@
 		<div class="info">
 
 			<h3>Info</h3>
+			<form method='post' action = '/upload/new' enctype='multipart/form-data'>
 		
-			<div class="icon" data-property="App Icon"></div>
+			<div class="icon" data-property="App Icon">
+				<input type='file' name='app[icon]'/>	
+			</div>
 			
 			<div data-property="App Name">
-				<input type="text">
+				<input type="text" name='app[name]'>
 			</div>
 			
 			<div data-property="App Description">
-				<textarea type="text"></textarea>
+				<textarea type="text" name = 'app[desc]'></textarea>
 			</div>
 			
 			<div data-property="Platform">
-				<input type="text"  />
+				<input type="text" name = 'app[platform]' />
 			</div>
 			
 			<div data-property="Working Group">
-				<input type="text" />
+				<input type="text" name = 'app[group]' />
 			</div>
+
+			<div data-property="App Package File">
+				<input type='file' name='app[file]'/>
+			</div>
+
+			<p><input type='submit' value='Upload'/></p>
+		</form>
 
 		</div>
 
