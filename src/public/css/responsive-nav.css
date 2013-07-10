@@ -18,6 +18,14 @@
   padding:.5em;  
 }
 
+#nav ul li:first-child{
+  padding-top:1.5em;
+}
+
+#nav ul li:last-child{
+  padding-bottom:1.5em;
+}
+
 .admin a{
     color:#ca3800;
     font-size:.9em;
