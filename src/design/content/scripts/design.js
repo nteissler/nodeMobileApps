@@ -7,7 +7,7 @@ $(document).ready(function(){
 		
 	});
 
-	$(".app .back").on("click", function(e){
+	$(".app .close").on("click", function(e){
 		$(".wrapper").removeClass("app-view");
 	});
 
