@@ -1,9 +1,27 @@
 var database = require('../lib').database;
+var _ = require('underscore');
+var ObjectID = require('mongodb').ObjectID;
 
 module.exports.apps = function(req,res,next) {
 
 	database.find( 'apps', {}, function(err, apps){
 		res.json( 200, apps );
+	});
+}
+
+module.exports.appById = function(req,res,next) {
+
+	var id = new ObjectID(req.params.id);
+
+	database.find( 'apps', {_id : id }, function(err, apps) {
+
+		if(err) {
+			return next(err);
+		}
+
+		if((apps) && (_.isArray(apps))) {
+			res.json(200, apps[0]);
+		}
 	});
 }
 
