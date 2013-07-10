@@ -18,6 +18,11 @@
   padding:.5em;  
 }
 
+.admin a{
+    color:#ca3800;
+    font-size:.9em;
+  }
+
 .js #nav {
   clip: rect(0 0 0 0);
   max-height: 0;
@@ -58,6 +63,13 @@
     margin: 0 1em;
     padding:0;
   }
+
+  #nav ul li.admin{
+    margin-top:5px;
+    display:block;    
+  }
+
+
 
   .js #nav {
     position:absolute !important;
