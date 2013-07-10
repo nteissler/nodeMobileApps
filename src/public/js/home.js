@@ -15,7 +15,7 @@ $(document).ready(function(){
 		$(".wrapper").removeClass("app-view");
 	});
 
-	$(".releases .release").on("click", function(e){
+	$(".app").on("click", ".releases .release", function(e){
 		if(!$(e.target).is("button")){
 			$(this).toggleClass("active");
 		}
