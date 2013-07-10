@@ -19,6 +19,7 @@ app.use(express.static(__dirname + '/public'));
 app.use("/design", express.static(__dirname + '/design'));
 
 app.get('/', routes.home);
+app.get('/upload',routes.upload.form);
 
 app.get('/api/seed', function(req,res,next){
 
