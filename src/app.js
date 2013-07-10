@@ -17,14 +17,16 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').__express);
 app.use(express.static(__dirname + '/public'));
-app.use("/design", express.static(__dirname + '/design'));
-app.use("localAppFolder",__dirname+'/public/appStorage');
+app.set("localAppFolder",__dirname+'/public/appStorage');
+app.set("localIconFolder",__dirname+'/public/iconStorage');
+app.use(express.bodyParser());
 
 app.get('/', routes.home);
 app.get('/upload',routes.upload.form);
 //change the app.get to upload to SC3
 app.post('/upload/new',
-	routes.upload.submit(app.get('localAppFolder')));
+	routes.upload.submit(app.get('localAppFolder'),
+						app.get('localIconFolder')));
 app.post('/upload/update',
 	routes.upload.update(app.get('localAppFolder')));
 
