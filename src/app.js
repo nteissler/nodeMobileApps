@@ -53,16 +53,25 @@ app.get('/api/seed', function(req,res,next){
 		icon : '/images/app-icon.png',
 		platform : 'android',
 		clientWorkingGroup : 'TEN',
-		isDevelopment : true,		
+		isDevelopment : true,
+		releases : [],
+	},
+	{
+		name : 'App 4',
+		description : 'foz',
+		icon : '/images/app-icon.png',
+		platform : 'android',
+		clientWorkingGroup : 'TEN',
+		isDevelopment : true,
 		releases : [],
 	},
 	];
 
-	database.collection( 'apps', function( err, collection ) {
+	database.collection('apps', function( err, collection ) {
 		collection.drop();
 
-		database.insert( 'apps', apps, function(err, results){
-			database.find( 'apps', {}, function( err, results ) {
+		database.insert('apps', apps, function(err, results) {
+			database.find('apps', {}, function( err, results ) {
 				res.json( 200, results );
 			});
 		});
