@@ -11,7 +11,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$(".app .back").on("click", function(e){
+	$(".app").on("click", ".close", function(e){
 		$(".wrapper").removeClass("app-view");
 	});
 
