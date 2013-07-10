@@ -109,7 +109,7 @@ EJS.prototype = {
 			params.url = options
 			_template = this;
 			params.onComplete = function(request){
-				var object = eval( request.responseText )
+				var object = JSON.parse( request.responseText )
 				EJS.prototype.update.call(_template, element, object)
 			}
 			EJS.ajax_request(params)
