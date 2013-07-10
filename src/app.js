@@ -34,3 +34,6 @@ app.post('/upload/update',
 app.get('/api/seed', routes.api.seed);
 app.get('/api/apps', routes.api.apps);
 app.get('/api/apps/:id', routes.api.appById);
+
+app.get('/:name', routes.home.named);
+app.get("/:name/:platform", routes.home.namedByPlatform);
