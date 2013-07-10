@@ -66,9 +66,9 @@ exports.submit = function(dir,iconDir){
 			releases : [{}]
 		}
 		console.log(appMongo);
-		//database.insert('apps', appMongo, function(err, results){
-		//	res.redirect('/');
-		//});
+		database.insert('apps', appMongo, function(err, results){
+			res.redirect('/');
+		});
 		//upload the mongo object
 		//save files to sc3
 		
