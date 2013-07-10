@@ -51,7 +51,7 @@
 /* CSS */
 
 body:not(.admin) .admin{
-	display:none;
+	display:none !important;
 }
 
 html, body{
