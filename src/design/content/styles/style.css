@@ -218,7 +218,7 @@ textarea{
 		margin:0;
 		overflow-y:auto;
 		box-sizing:border-box;
-		padding-left:30px;
+		padding-left:15px;
 		-webkit-transition: -webkit-transform .5s, opacity 0s linear .5s;
 		-moz-transition: -moz-transform .5s, opacity 0s linear .5s;
 		-o-transition: -o-transform .5s, opacity 0s linear .5s;
