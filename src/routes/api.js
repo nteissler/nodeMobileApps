@@ -22,7 +22,21 @@ module.exports.seed = function(req,res,next) {
 			passcode : '',
 			hidden : false
 		},
-		releases : []
+		current : {
+			version : '0.2.1',
+			notes : 'Minor bugfix',
+			file : '/files/appid/0.2.1'
+		},
+		releases : [{
+			version : '0.2.0',
+			notes : 'v2',
+			file : '/files/appid/0.2.0'
+		},
+		{
+			version : '0.1.7',
+			notes : 'Testing',
+			file : '/files/appid/0.1.7'
+		}]
 	},
 	{
 		name : 'App 2',
@@ -36,6 +50,7 @@ module.exports.seed = function(req,res,next) {
 			passcode : '',
 			hidden : false
 		},
+		current : null,
 		releases : []
 	},
 	{
@@ -50,6 +65,7 @@ module.exports.seed = function(req,res,next) {
 			passcode : '',
 			hidden : false
 		},
+		current : null,
 		releases : [],
 	},
 	{
@@ -64,6 +80,7 @@ module.exports.seed = function(req,res,next) {
 			passcode : '',
 			hidden : false
 		},
+		current : null,
 		releases : [],
 	},
 	];
