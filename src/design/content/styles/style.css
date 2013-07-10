@@ -133,12 +133,19 @@ textarea{
 }
 
 .list .app{
+	box-sizing:border-box;
 	padding-left:70px;
 	background-size:auto 100%;
 	background-position:0 0;
 	background-repeat:no-repeat;
-	margin:0px 0px 15px 15px;
+	margin:0px 0px 15px 2%;
+	width:96%;
 	background-image: url(../images/app-icon.png) !important; /* remove this */
+}
+
+.list .app:hover{
+	
+	
 }
 
 .wrapper > .app{
@@ -184,6 +191,7 @@ textarea{
 	filter: alpha(opacity=100);
 	opacity:1;
 	z-index:10;
+	overflow-y:auto;
 
 	-webkit-transform: translate3d(0, 0, 0);
 	-moz-transform: translate3d(0, 0, 0);
@@ -248,6 +256,19 @@ textarea{
 	background-image: url(../images/app-icon.png) !important; /* remove this */
 }
 
+.wrapper > .app  nav.admin{
+	text-align:right;
+	position:absolute;
+	top:2em;
+	right:1em;
+}
+
+.wrapper > .app  nav.admin button{
+	margin:0 1em;
+	color:#ca3800;
+	font-weight:bold;
+}
+
 .app .version {
 	font-weight:bold;
 	font-size:.8em;
@@ -268,6 +289,11 @@ textarea{
 
 .releases .release{
 	margin:10px 0 10px 10px;
+}
+
+.app button.admin{
+	color:#ca3800;
+	font-weight:bold;
 }
 
 .releases .release .notes{
