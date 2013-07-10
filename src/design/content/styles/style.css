@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Muli);
+/*@import url(http://fonts.googleapis.com/css?family=Muli);*/
 
 /* CSS */
 
@@ -29,7 +29,11 @@ a{
 
 header{
 	width:100%;
-	height:70px;
+	height:50px;
+}
+
+header h1{
+	padding-left:15px;
 }
 
 /*** ADMIN STUFF ***/
@@ -115,6 +119,10 @@ textarea{
 .wrapper{
 	width:100%;
 	position:relative;
+}
+
+.list{
+	padding-top:1em;
 }
 
 .list .app{

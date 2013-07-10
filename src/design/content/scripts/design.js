@@ -12,4 +12,12 @@ $(document).ready(function(){
 		$(this).parents(".release").toggleClass("active");
 	});	
 
+	var navigation = responsiveNav("#nav", {
+		label: "",
+		insert: "before",
+		open: function(){
+			
+		}
+	});
+
 })
