@@ -1,4 +1,5 @@
 var MongoClient = require('mongodb').MongoClient
+var _ = require('underscore');
 
 var connectionString = 'mongodb://mobile:m0b1l3@ds035498.mongolab.com:35498/mobile-apps';
 
@@ -37,6 +38,12 @@ var database = {
 	insert : function( collectionName, document, func ) {
 		getCollection(collectionName, function(err,collection){
 			collection.insert(document,func);
+		});
+	},
+
+	update : function(collectionName,document,func) {
+		getCollection(collectionName, function(err,collection){
+			collection.save(document,func);
 		});
 	}
 }

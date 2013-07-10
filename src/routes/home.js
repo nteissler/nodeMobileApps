@@ -1,4 +1,9 @@
-module.exports = function (request, response)
+var database = require('../lib').database;
+
+module.exports = function (request, response, next)
 {
-    response.end('MOBILE APPS ARE AWESOME SOMETIMES');
+	database.find( 'apps', {}, function(err, apps){
+		console.log( 'Rendering apps');
+		response.render('index', {apps: apps});
+	});
 }

@@ -25,3 +25,46 @@ app.get('/log', lib.logger.view);
 app.get('/log/add', lib.logger.add);
 app.get('/log/clear', lib.logger.clear);
 app.get('/log/test', lib.logger.test);
+
+app.get('/api/seed', function(req,res,next){
+
+	var apps = [
+	{
+		name : 'App 1',
+		description : 'foo',
+		icon : '/images/app-icon.png',
+		platform : 'iPhone',
+		clientWorkingGroup : 'TEN',
+		isDevelopment : true,
+		releases : []
+	},
+	{
+		name : 'App 2',
+		description : 'bar',
+		icon : '/images/app-icon.png',
+		platform : 'iPad',
+		clientWorkingGroup : 'TEN',
+		isDevelopment : false,
+		releases : []
+	},
+	{
+		name : 'App 3',
+		description : 'foz',
+		icon : '/images/app-icon.png',
+		platform : 'android',
+		clientWorkingGroup : 'TEN',
+		isDevelopment : true,		
+		releases : [],
+	},
+	];
+
+	database.collection( 'apps', function( err, collection ) {
+		collection.drop();
+
+		database.insert( 'apps', apps, function(err, results){
+			database.find( 'apps', {}, function( err, results ) {
+				res.json( 200, results );
+			});
+		});
+	});
+});

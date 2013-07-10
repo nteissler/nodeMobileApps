@@ -28,7 +28,8 @@
     "socket.io" :  "*",
     "ejs"       :  "*",
     "require-directory"    :  "*",
-    "mongodb"   :  "*"
+    "mongodb"   :  "*",
+    "underscore" : "*"
   },
   "analyze": false,
   "license": "MIT",
