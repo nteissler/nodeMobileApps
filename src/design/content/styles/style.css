@@ -88,7 +88,7 @@ a{
 button{
 	border-radius:0;
 	border:0px;
-	padding:4px 12px;
+	padding:.4em 1em;
 	background:#282828;
 	color:#ffffff;
 	font-size:1em;
@@ -96,7 +96,7 @@ button{
 
 button.install{
 	font-family:"Proxima Nova Bold";
-	padding:4px 35px;
+	padding:.4em 2em;
 }
 
 button.close{
