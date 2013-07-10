@@ -30,7 +30,12 @@ app.get('/api/seed', function(req,res,next){
 		icon : '/images/app-icon.png',
 		platform : 'iPhone',
 		clientWorkingGroup : 'TEN',
-		isDevelopment : true,
+		security : {
+			development : true,
+			secured : false,
+			passcode : '',
+			hidden : false
+		},
 		releases : []
 	},
 	{
@@ -39,7 +44,12 @@ app.get('/api/seed', function(req,res,next){
 		icon : '/images/app-icon.png',
 		platform : 'iPad',
 		clientWorkingGroup : 'TEN',
-		isDevelopment : false,
+		security : {
+			development : true,
+			secured : false,
+			passcode : '',
+			hidden : false
+		},
 		releases : []
 	},
 	{
@@ -48,7 +58,12 @@ app.get('/api/seed', function(req,res,next){
 		icon : '/images/app-icon.png',
 		platform : 'android',
 		clientWorkingGroup : 'TEN',
-		isDevelopment : true,
+		security : {
+			development : true,
+			secured : false,
+			passcode : '',
+			hidden : false
+		},
 		releases : [],
 	},
 	{
@@ -57,7 +72,12 @@ app.get('/api/seed', function(req,res,next){
 		icon : '/images/app-icon.png',
 		platform : 'android',
 		clientWorkingGroup : 'TEN',
-		isDevelopment : true,
+		security : {
+			development : true,
+			secured : false,
+			passcode : '',
+			hidden : false
+		},
 		releases : [],
 	},
 	];
