@@ -135,7 +135,7 @@ textarea{
 .list .app{
 	box-sizing:border-box;
 	padding-left:70px;
-	background-size:auto 100%;
+	background-size:auto 60px;
 	background-position:0 0;
 	background-repeat:no-repeat;
 	margin:0px 0px 15px 2%;
@@ -262,6 +262,12 @@ textarea{
 	right:1em;
 }
 
+.wrapper > .app  nav.admin button{
+	margin:0 1em;
+	color:#ca3800;
+	font-weight:bold;
+}
+
 @media screen and (max-width: 42em) {
 	.wrapper > .app  nav.admin{
 		padding:1em 0;
@@ -272,13 +278,15 @@ textarea{
 		right:0;
 		right:-webkit-initial;
 	}
+
+	.wrapper > .app  nav.admin button{
+		margin:0 .2em;
+		color:#ca3800;
+		font-weight:bold;
+	}
 }
 
-.wrapper > .app  nav.admin button{
-	margin:0 1em;
-	color:#ca3800;
-	font-weight:bold;
-}
+
 
 .app .version {
 	font-weight:bold;
