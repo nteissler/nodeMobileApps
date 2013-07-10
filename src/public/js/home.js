@@ -2,9 +2,11 @@ $(document).ready(function(){
 	
 	$(".list .app").on("click", function(e){
 		if(!$(e.target).is("button")){
+
+			var template = new EJS({url: '/templates/releases.ejs'}).update('releases', {});
+
 			$(".wrapper").addClass("app-view");	
 		}
-		
 	});
 
 	$(".app .back").on("click", function(e){
