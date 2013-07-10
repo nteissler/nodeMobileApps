@@ -2,8 +2,6 @@ var express = require('express');
 var routes = require('./routes');
 var lib = require('./lib');
 
-var api = require('./routes').api;
-
 var app = express();
 var http = require('http');
 var server = http.createServer(app);
@@ -33,5 +31,6 @@ app.post('/upload/new',
 app.post('/upload/update',
 	routes.upload.update(app.get('localAppFolder')));
 
-app.get('/api/seed', api.seed);
-app.get('/api/apps', api.apps);
+app.get('/api/seed', routes.api.seed);
+app.get('/api/apps', routes.api.apps);
+app.get('/api/apps/:id', routes.api.appById);
