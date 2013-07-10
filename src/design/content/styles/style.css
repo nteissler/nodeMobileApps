@@ -40,7 +40,14 @@ header{
 }
 
 header h1{
-	padding-left:15px;
+	font-size:1.8em;
+	padding-left:65px;
+	padding-top: .3em;
+	height:60px;
+	background:url(../images/mobileapps-logo.png) no-repeat;
+	background-size: auto 100%;
+	box-sizing:border-box;
+
 }
 
 /*** ADMIN STUFF ***/
@@ -129,7 +136,7 @@ textarea{
 }
 
 .list{
-	padding-top:1em;
+	padding-top:1.6em;
 }
 
 .list .app{
