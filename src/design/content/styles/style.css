@@ -250,7 +250,7 @@ textarea{
 	background-repeat:no-repeat;
 	margin:0px 0px 15px 2%;
 	width:96%;
-	background-image: url(../images/app-icon.png) !important;
+	/*background-image: url(../images/app-icon.png) !important;*/
 	/* remove this */
 	-webkit-transition: background-color .4s;
 	-moz-transition: background-color .4s;
