@@ -379,7 +379,7 @@ body.dialog  #dialog{
 	padding-top:1em;
 }
 
-.app h2.image{
+.app h2.image, .edit h2.image{
 	padding-left:60px;
 	padding-top:10px;
 	margin-bottom:.4em;
