@@ -36,26 +36,6 @@ exports.submit = function(iconDir){
 			});
 		}
 
-		var appMongo = { 
-			app:{
-                name : appName,
-                description : appDesc,
-                icon : iconPath,
-                platform : appPlat,
-                clientWorkingGroup : appGroup,
-                security: {
-                    development: (isDev=='on')?true:false,
-                    secured: (isSec=='on')?true:false,
-                    passcode: pass, //encrypt?
-                    hidden:(isHidden=='on')?true:false
-                },
-                current: {},
-                releases : [{}]
-            }
-		
-		}
-
-
 		if(id!='') {
 			database.find('apps',{_id : id},function(err,appArray){
 
@@ -79,7 +59,32 @@ exports.submit = function(iconDir){
 					});
 				}
 			});
-		} 
+		} else {
+
+			var appMongo = { 
+				app:{
+	                name : appName,
+	                description : appDesc,
+	                icon : iconPath,
+	                platform : appPlat,
+	                clientWorkingGroup : appGroup,
+	                security: {
+	                    development: (isDev=='on')?true:false,
+	                    secured: (isSec=='on')?true:false,
+	                    passcode: pass, //encrypt?
+	                    hidden:(isHidden=='on')?true:false
+	                },
+	                current: {},
+	                releases : [{}]
+            	}
+            	database.insert('apps',appMongo,function(err,results){
+            	res.redirect('/')
+            	});
+		
+			}
+
+
+		}
 
 	}
 };
