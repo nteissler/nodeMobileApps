@@ -39,6 +39,6 @@ app.get("/apps/:name/:platform", routes.home.namedByPlatform);
 app.get(/^(.+)$/, function(req, res,next) {
 	res.sendfile('public/' + req.params[0], function( err ) {
 		res.status(404);
-		res.sendfile('public/404.html');
+		res.sendfile('404.html');
 	});
 });

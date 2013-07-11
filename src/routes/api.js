@@ -20,7 +20,7 @@ module.exports.appById = function(req,res,next) {
 		}
 
 		if((apps) && (_.isArray(apps))) {
-			res.json(200, apps[0]);
+			res.json(200, { app : apps[0] });
 		}
 	});
 }
