@@ -24,7 +24,7 @@ module.exports.namedByPlatform = function(request, response, next) {
 }
 
 var searchAndRender = function(query, response) {
-	database.find( 'apps', query, function(err, apps){
+	database.find( 'apps', query, { name : 1 }, function(err, apps){
 
 		if( (apps) && (_.isArray(apps)) && (apps.length > 1)) {
 			response.render('home', {apps: apps});

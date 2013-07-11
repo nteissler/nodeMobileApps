@@ -29,9 +29,9 @@ var database = {
 		getCollection(name, func);
 	},
 
-	find : function( collectionName, query, func ) {
+	find : function( collectionName, query, sort, func ) {
 		getCollection(collectionName, function(err,collection){
-			collection.find(query).toArray(func);
+			collection.find(query).sort(sort).toArray(func);
 		});
 	},
 
