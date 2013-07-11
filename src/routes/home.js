@@ -1,4 +1,5 @@
 var database = require('../lib').database;
+var _ = require('underscore');
 
 module.exports = function (request, response, next)
 {
@@ -24,6 +25,11 @@ module.exports.namedByPlatform = function(request, response, next) {
 
 var searchAndRender = function(query, response) {
 	database.find( 'apps', query, function(err, apps){
-		response.render('home', {apps: apps});
+
+		if( (apps) && (_.isArray(apps)) && (apps.length > 1)) {
+			response.render('home', {apps: apps});
+		} else {
+			response.render('app', {app:apps[0]});
+		}
 	});
 }
