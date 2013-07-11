@@ -86,6 +86,7 @@ a{
 }
 
 button{
+	cursor:pointer;
 	border-radius:0;
 	border:0px;
 	padding:.4em 1em;
@@ -223,6 +224,7 @@ textarea{
 }
 
 .list .app{
+	cursor:pointer;
 	padding:.5em;
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
@@ -439,3 +441,42 @@ textarea{
 .releases .release button{
 	display:none;
 }
+
+/*** LOADING ***/
+
+.loading:before{
+	display: block;
+	content:"";
+	width:8px;
+	height:8px;
+	border-radius:4px;
+	background-color:#83eac0;
+
+	position: absolute;
+	top: 0;
+	left: -12px;
+}
+
+.loading{
+	position:absolute;
+	top:45%;
+	left:50%;
+	margin-left:-4px;
+	display: block;
+	width:8px;
+	height:8px;
+	border-radius:4px;
+	background-color:#1c75bc;
+}
+
+.loading:after{
+	display: block;
+	content:"";
+	width:8px;
+	height:8px;
+	border-radius:4px;
+	background-color:#ffae15;	
+	position: absolute; top: 0; 
+	left: 12px;
+}
+
