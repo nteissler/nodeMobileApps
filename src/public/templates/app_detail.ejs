@@ -1,7 +1,6 @@
 
 <div class="app">
-	<button class="close" href="#"></button>
-	<h2 class="image" style="<%= icon%>"><%= name%></h2>
+	<h2 class="image" style="<%= app.icon%>"><%= app.name%></h2>
 	
 	<nav class="admin">
 		<button>Edit</button>
@@ -10,22 +9,22 @@
 	</nav>
 
 	<p class="description">
-		<%= description %>
+		<%= app.description %>
 	</p>
-	<% if(!current) { %>
+	<% if(!app.current) { %>
 		<p>Check back soon for an install.</p> 
 	<% } else { %>
 		<div class="release">
-			<div class="version"><%= current.version %></div>
+			<div class="version"><%= app.current.version %></div>
 			<div class="notes">
-				<%= current.notes %>
+				<%= app.current.notes %>
 			</div>
 			<button class="install">Install</button>
 		</div>
 		<h3>Past releases</h3>
 		<div class="releases">
-			<% for( var i=0; i < releases.length; i++ ) { %>
-				<% var release = releases[i]; %>
+			<% for( var i=0; i < app.releases.length; i++ ) { %>
+				<% var release = app.releases[i]; %>
 				<div class="release">
 					<div class="version"><%= release.version %></div>
 					<div class="notes">

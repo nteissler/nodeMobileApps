@@ -24,7 +24,7 @@ app.use(express.bodyParser());
 
 app.get('/', routes.home);
 //change the app.get to upload to SC3
-app.post('/release',routes.upload.submit(app.get('localAppFolder')));
+app.post('/release',routes.newRelease.submit(app.get('localAppFolder')));
 app.post('/setup',routes.setup.submit(app.get('localIconFolder')));
 
 
@@ -39,6 +39,6 @@ app.get("/apps/:name/:platform", routes.home.namedByPlatform);
 app.get(/^(.+)$/, function(req, res,next) {
 	res.sendfile('public/' + req.params[0], function( err ) {
 		res.status(404);
-		res.sendfile('public/404.html');
+		res.sendfile('404.html');
 	});
 });
