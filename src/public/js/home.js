@@ -27,6 +27,7 @@ $(document).ready(function(){
 
 	$("#dialog, .application").on("click", ".releases .release", function(e){
 		if(!$(e.target).is("button")){
+			console.log(e);
 			$(this).toggleClass("active");
 		}
 	});	
@@ -40,7 +41,6 @@ $(document).ready(function(){
 			}
 		});	
 	}
-	
 
 })
 

@@ -6,7 +6,7 @@
   width: 100%;
   display: block;
   list-style: none;
-  box-shadow: inset 0px -12px 22px -12px rgba(0,0,0,.5);
+  box-shadow: inset 0px -12px 22px -12px rgba(0,0,0,.8);
 }
 
 #nav li {
@@ -23,9 +23,11 @@
   padding-bottom:1.5em;
 }
 
+
+
 .admin a{
     color:#ca3800;
-    font-size:.9em;
+    /*font-size:.9em;*/
   }
 
 .js #nav {
@@ -35,6 +37,9 @@
   display: block;
   overflow: hidden;
   zoom: 1;
+  margin-top: 1em;
+  background: #454545;
+  box-shadow: inset 0px 12px 22px -12px rgba(0,0,0,.8);
 }
 
 #nav.opened {
@@ -52,7 +57,11 @@
   right: 10px;
 }
 
-
+@media screen and (max-width: 42em) {  
+    ul li a{
+      color:#ffffff;
+    }
+}
 
 @media screen and (min-width: 42em) {  
 
@@ -75,16 +84,22 @@
     display:block;    
   }
 
-
+  .admin a{
+    font-size:.9em;  
+  }
+  
 
   .js #nav {
     position:absolute !important;
+    background:transparent;
     top:.5em;
     right:10px;
     width:60%;
     margin:0;
     clip: auto;
+    box-shadow:none;
   }
+
   .js #nav.closed {
     max-height: none;
   }
