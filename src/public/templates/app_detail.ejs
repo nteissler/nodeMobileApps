@@ -8,13 +8,14 @@
 		<button>Delete</button>
 	</nav>
 
-	<p class="description">
+	<p class="description" data-property="Description">
 		<%= app.description %>
 	</p>
 	<% if(!app.current) { %>
 		<p>Check back soon for an install.</p> 
 	<% } else { %>
-		<div class="release">
+		<h3>Latest Release</h3>
+		<div class="latest release">
 			<div class="version"><%= app.current.version %></div>
 			<div class="notes">
 				<%= app.current.notes %>

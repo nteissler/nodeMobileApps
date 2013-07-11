@@ -25,19 +25,22 @@ $(document).ready(function(){
 		$(".wrapper").removeClass("dialog");
 	});
 
-	$("#dialog").on("click", ".releases .release", function(e){
+	$("#dialog, .application").on("click", ".releases .release", function(e){
 		if(!$(e.target).is("button")){
 			$(this).toggleClass("active");
 		}
 	});	
 
-	var navigation = responsiveNav("#nav", {
-		label: "",
-		insert: "before",
-		open: function(){
+	if($("#nav").length > 0){
+		var navigation = responsiveNav("#nav", {
+			label: "",
+			insert: "before",
+			open: function(){
 
-		}
-	});
+			}
+		});	
+	}
+	
 
 })
 
