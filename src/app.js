@@ -33,5 +33,13 @@ app.get('/api/seed', routes.api.seed);
 app.get('/api/apps', routes.api.apps);
 app.get('/api/apps/:id', routes.api.appById);
 
-app.get('/:name', routes.home.named);
-app.get("/:name/:platform", routes.home.namedByPlatform);
+app.get('/apps/:name', routes.home.named);
+app.get("/apps/:name/:platform", routes.home.namedByPlatform);
+
+// Generic catch all route
+app.get(/^(.+)$/, function(req, res,next) {
+	res.sendfile('public/' + req.params[0], function( err ) {
+		res.status(404);
+		res.sendfile('public/404.html');
+	});
+});
