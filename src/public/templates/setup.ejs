@@ -1,6 +1,6 @@
 <div class="edit">
 		
-		<h2><%=name %></h2>
+		<h2><%=app.name %></h2>
 		<button class="close"></button>
 		<form method='post' action = '/setup' enctype='multipart/form-data'>
 		<div class="info">
@@ -27,6 +27,9 @@
 			<div data-property="Working Group">
 				<input type="text" name = 'app[group]' />
 			</div>
+			<div>
+			<textarea type='text' hidden name='app[id]'><%=app._id%></textarea>
+			</div>
 		
 
 		</div>
@@ -44,6 +47,8 @@
 			</div>
 			
 			<input type="checkbox" data-property="Hidden" name='app[isHidden]'>
+
+			<input type="Submit" value="Submit Release">
 
 
 		</div>

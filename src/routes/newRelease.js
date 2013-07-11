@@ -17,6 +17,7 @@ exports.submit = function(appDir){
 		var versionNum = req.body.release.version;
 		var releaseNotes = req.body.release.notes;
 		var appFile = req.files.release.file;
+		var appId = req.files.release.id;
 		console.log(req.body);
 
 
