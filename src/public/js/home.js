@@ -3,11 +3,8 @@ $(document).ready(function(){
 	$(".list .app").on("click", function(e){
 		if(!$(e.target).is("button")){
 
-			var id = $(this).attr('data-id');
-
-			showDialog('/templates/app_detail.ejs', '/api/apps/' + id);			
+			showDialogByApp($(this), '/templates/app_detail.ejs');			
 		}
-
 	});
 
 	$(".list .admin").on("click",function(e){
@@ -46,6 +43,13 @@ $(document).ready(function(){
 	});
 
 })
+
+var showDialogByApp = function( element, templateUrl ) {
+
+	var id = element.data('id');
+
+	showDialog(templateUrl, '/api/apps/' + id);
+}
 
 var showDialog = function( templateUrl, ajaxUrl ) {
 
