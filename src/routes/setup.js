@@ -77,11 +77,12 @@ exports.submit = function(iconDir){
 	                current: {},
 	                releases : [{}]
             	}
-            	//database.insert('apps',appMongo,function(err,results){
-            	//	res.redirect('/')
-            	//});
+            }
+            database.insert('apps',appMongo,function(err,results){
+            	res.redirect('/')
+            });
 		
-			}
+			
 
 
 		}
