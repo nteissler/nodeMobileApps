@@ -7,6 +7,7 @@ var fs = require('fs');
 
 var lib = require('../lib');
 var database = lib.database; 
+var ObjectID = require('mongodb').ObjectID;
 
 
 
@@ -17,14 +18,15 @@ exports.submit = function(appDir){
 		var versionNum = req.body.release.version;
 		var releaseNotes = req.body.release.notes;
 		var appFile = req.files.release.file;
-		console.log(req.body);
+		var id = new ObjectID(req.body.app.id) || '';
 
-
+		if(appFile.size !==0){
 		var appPath = join(appDir,appFile.name);
 		//save the files to proper location
 		fs.rename(appFile.path,appPath,function(err){
 			if(err) return next(err);
 		});
+		}
 
 		var releaseMongo = {
 				version: versionNum,

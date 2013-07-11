@@ -7,6 +7,7 @@ var fs = require('fs');
 
 var lib = require('../lib');
 var database = lib.database; 
+var ObjectID = require('mongodb').ObjectID;
 
 
 
@@ -23,37 +24,68 @@ exports.submit = function(iconDir){
 		var isSec = req.body.app.isSecure;
 		var isHidden = req.body.app.isHidden;
 		var	pass = req.body.app.passcode;
+		var id = new ObjectID(req.body.app.id) || '';
+
+		if(iconFile.size !== 0){//if statement for debugging
+			var iconPath = join(iconDir,iconFile.name);
+			//save the files to proper location
 
 
-		var iconPath = join(iconDir,iconFile.name);
-		//save the files to proper location
-
-		fs.rename(iconFile.path,iconPath,function(err){
-			if(err) return next(err);
-		});
-
-		var appMongo = {
-			name : appName,
-			description : appDesc,
-			icon : iconPath,
-			platform : appPlat,
-			clientWorkingGroup : appGroup,
-			security: {
-				development: (isDev=='on')?true:false,
-				secured: (isSec=='on')?true:false,
-				passcode: pass, //encrypt?
-				hidden:(isHidden=='on')?true:false
-			},
-			current: {},
-			releases : [{}]
+			fs.rename(iconFile.path,iconPath,function(err){
+				if(err) return next(err);
+			});
 		}
-		console.log(appMongo);
-		database.insert('apps', appMongo, function(err, results){
-			res.redirect('/');
-		});
-		//upload the mongo object
-		//save files to sc3
+
+		if(id!='') {
+			database.find('apps',{_id : id},function(err,appArray){
+
+				if(err) return next(err);
+				
+				if(appArray){
+					var updating = appArray[0];
+					updating.name = appName;
+					updating.description = appDesc;
+					updating.icon = iconPath;
+					updating.platform = appPlat;
+					updating.clientWorkingGroup = appGroup;
+					updating.security = {
+						development: (isDev=='on')?true:false,
+                    	secured: (isSec=='on')?true:false,
+                    	passcode: pass, //encrypt?
+                    	hidden:(isHidden=='on')?true:false
+                	};
+                	database.update('apps', updating, function(err, results){	
+						res.redirect('/');
+					});
+				}
+			});
+		} else {
+
+			var appMongo = { 
+				app:{
+	                name : appName,
+	                description : appDesc,
+	                icon : iconPath,
+	                platform : appPlat,
+	                clientWorkingGroup : appGroup,
+	                security: {
+	                    development: (isDev=='on')?true:false,
+	                    secured: (isSec=='on')?true:false,
+	                    passcode: pass, //encrypt?
+	                    hidden:(isHidden=='on')?true:false
+	                },
+	                current: {},
+	                releases : [{}]
+            	}
+            }
+            database.insert('apps',appMongo,function(err,results){
+            	res.redirect('/')
+            });
 		
+			
+
+
+		}
 
 	}
 };
