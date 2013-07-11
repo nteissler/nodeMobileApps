@@ -19,7 +19,7 @@ exports.submit = function(appDir){
 		var appFile = req.files.release.file;
 
 
-		var appPath = join(dir,appFile.name);
+		var appPath = join(appDir,appFile.name);
 		//save the files to proper location
 		fs.rename(appFile.path,appPath,function(err){
 			if(err) return next(err);
@@ -32,9 +32,7 @@ exports.submit = function(appDir){
 			};
 
 
-		database.insert('apps', appMongo, function(err, results){
-
-			
+		database.insert('apps', releaseMongo, function(err, results){	
 			res.redirect('/');
 		});
 		//upload the mongo object

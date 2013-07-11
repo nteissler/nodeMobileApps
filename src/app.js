@@ -24,7 +24,7 @@ app.use(express.bodyParser());
 
 app.get('/', routes.home);
 //change the app.get to upload to SC3
-app.post('/release',routes.upload.submit(app.get('localAppFolder')));
+app.post('/release',routes.newRelease.submit(app.get('localAppFolder')));
 app.post('/setup',routes.setup.submit(app.get('localIconFolder')));
 
 
