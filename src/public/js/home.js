@@ -12,13 +12,10 @@ $(document).ready(function(){
 		switch($(e.target).attr("data-action")){
 			
 			case "edit":
-				alert("switch statement");
-				var template = new EJS({url: '/templates/setup.ejs'}).update('dialog', '/api/apps/' + id);
-				$(".wrapper").addClass("dialog");
+				showDialogByApp($(this),'/templates/setup.ejs');
 				break;
 			case "newVersion":
-				var template = new EJS({url: '/templates/newRelease.ejs'}).update('dialog', '/api/apps/' + id);
-				$(".wrapper").addClass("dialog");
+				showDialogByApp($(this),'/templates/newRelease.ejs');
 				break;
 		}
 	});
