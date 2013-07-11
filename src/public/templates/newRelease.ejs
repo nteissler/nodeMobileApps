@@ -1,0 +1,29 @@
+<div class="release">
+
+	<h2>New Release for <%=name%></h2>
+	<h3>Current Version: <%=current.version%></h3>
+	<button class="close"></button>
+
+	<div class="info">
+		
+	<form method='post' action = '/release' enctype='multipart/form-data'>	
+		<div data-property="Release Version">
+			<input type="text" name='release[version]'>
+		</div>
+		
+		<div data-property="Release Notes">
+			<textarea type="text" name='release[notes]'></textarea>
+		</div>
+		
+		<div data-property="New App Package">
+			<input type="file" name='release[file]'>
+		</div>
+
+		<p><input type='submit' value='Add Release'/></p>
+
+
+	</form>
+
+	</div>
+	
+</div>

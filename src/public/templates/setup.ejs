@@ -1,0 +1,53 @@
+<div class="edit">
+		
+		<h2><%=name %></h2>
+		<button class="close"></button>
+		<form method='post' action = '/setup' enctype='multipart/form-data'>
+		<div class="info">
+
+			<h3>Info</h3>
+			
+		
+			<div class="icon" data-property="App Icon">
+				<input type='file' name='app[icon]'/>	
+			</div>
+			
+			<div data-property="App Name">
+				<input type="text" name='app[name]'>
+			</div>
+			
+			<div data-property="App Description">
+				<textarea type="text" name = 'app[desc]'></textarea>
+			</div>
+			
+			<div data-property="Platform">
+				<input type="text" name = 'app[platform]' />
+			</div>
+			
+			<div data-property="Working Group">
+				<input type="text" name = 'app[group]' />
+			</div>
+		
+
+		</div>
+
+		<div class="security">
+		
+			<h3>Security</h3>
+			
+			<input type="checkbox" data-property="Development App" name ='app[isDev]'>		
+			
+			<input type="checkbox" data-property="Secured" name='app[isSecure]'>
+			
+			<div  data-property="Passcode">
+				<input type="text" name='app[passcode]'>
+			</div>
+			
+			<input type="checkbox" data-property="Hidden" name='app[isHidden]'>
+
+
+		</div>
+		</form>
+	
+		
+	</div>

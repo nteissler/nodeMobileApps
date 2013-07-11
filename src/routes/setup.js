@@ -1,3 +1,5 @@
+//update app.js to route
+
 var path = require('path');
 var join = path.join;
 var fs = require('fs');
@@ -15,10 +17,7 @@ exports.form = function(req,res){
 
 
 
-//can be deleted her for reference
-
-
-exports.submit = function(dir,iconDir){
+exports.submit = function(iconDir){
 	return function(req,res,next){
 		//read in data from first app setup
 		var iconFile = req.files.app.icon;
@@ -30,18 +29,11 @@ exports.submit = function(dir,iconDir){
 		var isSec = req.body.app.isSecure;
 		var isHidden = req.body.app.isHidden;
 		var	pass = req.body.app.passcode;
-		//read in from release section
-		var versionNum = req.body.release.version;
-		var releaseNotes = req.body.release.notes;
-		var appFile = req.files.release.file;
 
 
-		var appPath = join(dir,appFile.name);
 		var iconPath = join(iconDir,iconFile.name);
 		//save the files to proper location
-		fs.rename(appFile.path,appPath,function(err){
-			if(err) return next(err);
-		});
+
 		fs.rename(iconFile.path,iconPath,function(err){
 			if(err) return next(err);
 		});
@@ -55,14 +47,10 @@ exports.submit = function(dir,iconDir){
 			security: {
 				development: (isDev=='on')?true:false,
 				secured: (isSec=='on')?true:false,
-				passcode: pass,
+				passcode: pass, //encrypt?
 				hidden:(isHidden=='on')?true:false
 			},
-			current: {
-				version: versionNum,
-				notes: releaseNotes,
-				file: appPath
-			},
+			current: {},
 			releases : [{}]
 		}
 		console.log(appMongo);
@@ -75,4 +63,3 @@ exports.submit = function(dir,iconDir){
 
 	}
 };
-
