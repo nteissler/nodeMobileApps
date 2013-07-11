@@ -352,7 +352,7 @@ textarea{
 	}
 }
 
-#dialog > .app h2.image{
+#dialog #content > .app h2.image{
 	padding-left:60px;
 	padding-top:10px;
 	height:50px;
@@ -365,24 +365,24 @@ textarea{
 
 
 
-#dialog > .app  nav.admin{
+#dialog #content > .app  nav.admin{
 	padding:1em 0;
 	text-align:left;
 	position:relative;
 }
 
-#dialog > .app  nav.admin button{
+#dialog #content > .app  nav.admin button{
 	margin:0 2em 0 0;
 	color:#ca3800;
 	font-family:"Proxima Nova Bold";
 }
 
-#dialog > .app > .release{
+#dialog #content > .app > .release{
 	margin:1em 0;
 }
 
 @media screen and (max-width: 42em) {
-	#dialog > .app  nav.admin{
+	#dialog #content > .app  nav.admin{
 		padding:1em 0;
 		text-align:left;
 		position:relative;
@@ -392,7 +392,7 @@ textarea{
 		right:-webkit-initial;
 	}
 
-	#dialog > .app  nav.admin button{
+	#dialog #content > .app  nav.admin button{
 		margin:0 .2em;
 		color:#ca3800;
 		font-family:"Proxima Nova Bold";
