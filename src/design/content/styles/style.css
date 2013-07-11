@@ -85,6 +85,11 @@ a{
 	font-family:"Proxima Nova Bold";
 }
 
+p{
+	margin:0;
+	padding:0;
+}
+
 button, input[type="file"], input[type="submit"]{
 	cursor:pointer;
 	border-radius:.2em;
@@ -367,6 +372,7 @@ textarea{
 #dialog #content > .app h2.image{
 	padding-left:60px;
 	padding-top:10px;
+	margin-bottom:1em;
 	height:50px;
 	box-sizing:border-box;
 	background-size:auto 100%;
@@ -497,6 +503,7 @@ textarea{
 .application .app h2.image{
 	padding-left:60px;
 	padding-top:10px;
+	margin-bottom:1em;
 	height:50px;
 	box-sizing:border-box;
 	background-size:auto 100%;
