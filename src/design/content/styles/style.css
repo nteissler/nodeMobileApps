@@ -85,7 +85,7 @@ a{
 	font-family:"Proxima Nova Bold";
 }
 
-button{
+button, input[type="file"], input[type="submit"]{
 	cursor:pointer;
 	border-radius:0;
 	border:0px;
@@ -115,8 +115,12 @@ button.close{
 
 header{
 	padding-top:.5em;
-	width:100%;
+	width:38%;
 	height:50px;
+}
+
+header a{
+	color:#121212;
 }
 
 header h1{
@@ -147,7 +151,7 @@ header h1 span{
 	display:block;
 	position:relative;
 	font-size:.8em;
-	width:100px;
+	width:160px;
 }
 
 input[type="checkbox"][data-property]:before{
@@ -166,27 +170,32 @@ input[type="text"], textarea{
 	width:260px;
 }
 
+input[type="file"]{
+	width:240px;
+	font-size:.8em;
+}
+
 textarea{
 	height:100px;
 }
 
 .edit, .release{
 	box-sizing:border-box;
-	padding:20px;
-	border-radius:10px;
-	border:1px solid #eeeeee;
+	padding:10px 0;
+	/*border-radius:10px;
+	border:1px solid #eeeeee;*/
 	width:90%;
-	margin:0 5%;
+	/*margin:0 5%;*/
 }
 
 .edit h2, .release h2{
 	margin-bottom:10px;
 }
 
-.edit > div{
+.edit .info, .edit .security{
 	display:inline-block;
 	vertical-align: top;
-	margin:0 10px;
+	margin:0 15px 0 10px;
 }
 
 .edit > div > *:not(h3){
@@ -197,9 +206,9 @@ textarea{
 	background-size:cover;
 	background-repeat:no-repeat;
 	margin-top:25px;
-	width:50px;
+	/*width:50px;
 	height:50px;
-	background-color:#aaaaaa;
+	background-color:#aaaaaa;*/
 }
 
 .edit .icon:before{
@@ -246,8 +255,7 @@ textarea{
 }
 
 .list .app:hover{
-	background-color:#dfdfdf;
-	
+	background-color:#dfdfdf;	
 }
 
 #dialog{
@@ -379,6 +387,14 @@ textarea{
 
 #dialog #content > .app > .release{
 	margin:1em 0;
+	
+}
+
+#dialog #content .release{
+	border-radius:10px;
+	border:1px solid #eeeeee;
+	padding:.5em;
+	box-sizing:border-box;
 }
 
 @media screen and (max-width: 42em) {
@@ -423,7 +439,18 @@ textarea{
 }
 
 .releases .release{
+	cursor:pointer;
 	margin:10px 0 10px 10px;
+	-webkit-transition: background-color .4s;
+	-moz-transition: background-color .4s;
+	-o-transition: background-color .4s;
+	-ms-transition: background-color .4s;
+	transition: background-color .4s;
+}
+
+.releases .release:hover{
+	background-color:#dfdfdf;	
+
 }
 
 .app button.admin{
