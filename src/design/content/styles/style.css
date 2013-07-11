@@ -51,7 +51,7 @@
 /* CSS */
 
 body:not(.admin) .admin{
-	display:none !important;
+	/*display:none !important;*/
 }
 
 html, body{
@@ -121,7 +121,7 @@ header{
 header h1{
 	font-family: "Proxima Nova Thin";
 	font-size:1.8em;
-	padding-left:65px;
+	padding-left:74px;
 	padding-top: .3em;
 	height:60px;
 	background:url(../images/mobileapps-logo.png) no-repeat;
@@ -350,7 +350,7 @@ textarea{
 	}
 }
 
-.wrapper > .app h2.image{
+#dialog > .app h2.image{
 	padding-left:60px;
 	padding-top:10px;
 	height:50px;
