@@ -4,7 +4,7 @@ var ObjectID = require('mongodb').ObjectID;
 
 module.exports.apps = function(req,res,next) {
 
-	database.find( 'apps', {}, function(err, apps){
+	database.find( 'apps', {}, { name : 1 }, function(err, apps){
 		res.json( 200, apps );
 	});
 }
@@ -13,7 +13,7 @@ module.exports.appById = function(req,res,next) {
 
 	var id = new ObjectID(req.params.id);
 
-	database.find( 'apps', {_id : id }, function(err, apps) {
+	database.find( 'apps', {_id : id }, {}, function(err, apps) {
 
 		if(err) {
 			return next(err);
@@ -107,7 +107,7 @@ module.exports.seed = function(req,res,next) {
 		collection.drop();
 
 		database.insert('apps', apps, function(err, results) {
-			database.find('apps', {}, function( err, results ) {
+			database.find('apps', {}, {}, function( err, results ) {
 				res.json( 200, results );
 			});
 		});
