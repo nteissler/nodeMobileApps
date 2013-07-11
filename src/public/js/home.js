@@ -12,10 +12,10 @@ $(document).ready(function(){
 		switch($(e.target).attr("data-action")){
 			
 			case "edit":
-				showDialogByApp($(this),'templates/app_details.ejs');
+				showDialogByApp($(this),'/templates/setup.ejs');
 				break;
 			case "newVersion":
-				showDialogByApp($(this),'templates/app_details.ejs');
+				showDialogByApp($(this),'/templates/newRelease.ejs');
 				break;
 		}
 	});
