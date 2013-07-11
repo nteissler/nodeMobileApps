@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 			var id = $(this).attr('data-id');
 
-			var template = new EJS({url: '/templates/releases.ejs'}).update('dialog', '/api/apps/' + id);
+			var template = new EJS({url: '/templates/app_detail.ejs'}).update('dialog', '/api/apps/' + id);
 
 			$(".wrapper").addClass("dialog");	
 		}
