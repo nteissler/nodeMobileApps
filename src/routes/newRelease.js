@@ -17,6 +17,7 @@ exports.submit = function(appDir){
 		var versionNum = req.body.release.version;
 		var releaseNotes = req.body.release.notes;
 		var appFile = req.files.release.file;
+		console.log(req.body);
 
 
 		var appPath = join(appDir,appFile.name);
@@ -32,9 +33,9 @@ exports.submit = function(appDir){
 			};
 
 
-		database.insert('apps', releaseMongo, function(err, results){	
-			res.redirect('/');
-		});
+		//database.insert('apps', releaseMongo, function(err, results){	
+		//	res.redirect('/');
+		//});
 		//upload the mongo object
 		//save files to sc3
 		
