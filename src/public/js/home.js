@@ -57,5 +57,5 @@ var showDialog = function( templateUrl, ajaxUrl ) {
 
 	var template = new EJS({url: templateUrl}).update('content', ajaxUrl);
 
-	$(".wrapper").addClass("dialog");
+	$("body").addClass("dialog");
 }

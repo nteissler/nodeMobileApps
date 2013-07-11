@@ -295,7 +295,7 @@ textarea{
 	border-radius:10px;
 }
 
-.wrapper.dialog  #dialog{
+body.dialog  #dialog{
 	-webkit-transition: opacity .6s, z-index 0s;
 	-moz-transition: opacity .6s, z-index 0s;
 	-o-transition: opacity .6s, z-index 0s;
@@ -314,12 +314,8 @@ textarea{
 	transform: translate3d(0, 0, 0);
 }
 
-.wrapper.dialog *:not(#dialog){
-	-webkit-user-select:none;
-	-moz-user-select:none;
-	-ms-user-select:none;
-	user-select:none;
-	-webkit-user-drag:none;
+body.dialog{
+	overflow:hidden;
 }
 
 #dialog .close{
@@ -358,7 +354,7 @@ textarea{
 		opacity:0;
 	}
 
-	.wrapper.dialog #dialog{
+	body.dialog #dialog{
 		-webkit-transition: -webkit-transform .5s;
 		-moz-transition: -moz-transform .5s;
 		-o-transition: -o-transform .5s;
