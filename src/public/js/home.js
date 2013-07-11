@@ -39,9 +39,30 @@ $(document).ready(function(){
 			open: function(){
 
 			}
-		});	
-	}
+		});
 
+		$("nav .admin").on("click", function() {
+			var app = { 
+				app : {
+					name : '',
+					description : '',
+					icon : '',
+					platform : '',
+					clientWorkingGroup : '',
+					security : {
+						development : true,
+						secured : false,
+						passcode : '',
+						hidden : false
+					},
+					current : null,
+					releases : []
+				}
+			};
+			
+			renderDialog("/templates/setup.ejs", app);			
+	} );
+	}
 })
 
 var showDialogByApp = function( element, templateUrl ) {
@@ -56,6 +77,15 @@ var showDialog = function( templateUrl, ajaxUrl ) {
 	$('#content').html("<div class='loading'></div>");
 
 	var template = new EJS({url: templateUrl}).update('content', ajaxUrl);
+
+	$("body").addClass("dialog");
+}
+
+var renderDialog = function( templateUrl, data )  {
+
+	$('#content').html("<div class='loading'></div>");
+
+	$("#content").html(new EJS({url: templateUrl}).render(data));
 
 	$("body").addClass("dialog");
 }
