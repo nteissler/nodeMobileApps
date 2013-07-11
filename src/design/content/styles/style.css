@@ -372,7 +372,7 @@ textarea{
 #dialog #content > .app h2.image{
 	padding-left:60px;
 	padding-top:10px;
-	margin-bottom:1em;
+	margin-bottom:.4em;
 	height:50px;
 	box-sizing:border-box;
 	background-size:auto 100%;
@@ -384,7 +384,7 @@ textarea{
 
 
 #dialog #content > .app  nav.admin{
-	padding:1em 0;
+	padding:0 0 .5em 0;
 	text-align:left;
 	position:relative;
 }
@@ -482,7 +482,7 @@ textarea{
 	font-family:"Proxima Nova Bold";
 }
 
-.releases .release .notes{
+.releases .release:not(.active) .notes{
 	padding:0;
 	max-height:0px;
 	overflow:hidden;
@@ -556,6 +556,18 @@ textarea{
 		color:#ca3800;
 		font-family:"Proxima Nova Bold";
 	}
+}
+
+.description{
+	box-sizing:border-box;
+	padding:.5em;
+	margin:.5em 0 1em 0;
+	width:96%;
+}
+
+#dialog button.install, .application button.install{
+	margin-top:.5em;
+	margin-bottom:.5em;
 }
 
 
