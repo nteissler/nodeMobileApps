@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 
 	$("#dialog").on("click", ".close", function(e){
-		$(".wrapper").removeClass("dialog");
+		$("body").removeClass("dialog");
 	});
 
 	$("#dialog, .application").on("click", ".releases .release", function(e){
@@ -57,5 +57,5 @@ var showDialog = function( templateUrl, ajaxUrl ) {
 
 	var template = new EJS({url: templateUrl}).update('content', ajaxUrl);
 
-	$(".wrapper").addClass("dialog");
+	$("body").addClass("dialog");
 }

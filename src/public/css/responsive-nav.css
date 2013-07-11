@@ -98,6 +98,7 @@
     margin:0;
     clip: auto;
     box-shadow:none;
+    z-index:10;
   }
 
   .js #nav.closed {
