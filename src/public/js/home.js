@@ -46,7 +46,7 @@ $(document).ready(function(){
 				app : {
 					name : '',
 					description : '',
-					icon : '',
+					icon : null,
 					platform : '',
 					clientWorkingGroup : '',
 					security : {
