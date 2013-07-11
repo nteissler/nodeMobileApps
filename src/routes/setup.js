@@ -24,7 +24,8 @@ exports.submit = function(iconDir){
 		var isSec = req.body.app.isSecure;
 		var isHidden = req.body.app.isHidden;
 		var	pass = req.body.app.passcode;
-		var id = new ObjectID(req.body.app.id) || '';
+
+		var id = (req.body.app.id!=="")? new ObjectID(req.body.app.id): new ObjectID();
 
 		if(iconFile.size !== 0){//if statement for debugging
 			var iconPath = join(iconDir,iconFile.name);
@@ -36,8 +37,8 @@ exports.submit = function(iconDir){
 			});
 		}
 
-		if(id!='') {
-			database.find('apps',{_id : id},function(err,appArray){
+		if(req.body.app.id!='') {
+			database.find('apps',{_id : id},{},function(err,appArray){
 
 				if(err) return next(err);
 				
@@ -62,7 +63,6 @@ exports.submit = function(iconDir){
 		} else {
 
 			var appMongo = { 
-				app:{
 	                name : appName,
 	                description : appDesc,
 	                icon : iconPath,
@@ -74,9 +74,8 @@ exports.submit = function(iconDir){
 	                    passcode: pass, //encrypt?
 	                    hidden:(isHidden=='on')?true:false
 	                },
-	                current: {},
+	                current: null,
 	                releases : [{}]
-            	}
             }
             database.insert('apps',appMongo,function(err,results){
             	res.redirect('/')
