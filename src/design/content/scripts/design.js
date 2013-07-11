@@ -7,11 +7,11 @@ $(document).ready(function(){
 		
 	});
 
-	$(".app .close").on("click", function(e){
+	$("#dialog").on("click", ".close", function(e){
 		$(".wrapper").removeClass("dialog");
 	});
 
-	$(".releases").on("click", ".release", function(e){
+	$("#dialog").on("click", ".release", function(e){
 		if(!$(e.target).is("button")){
 			$(this).toggleClass("active");
 		}
