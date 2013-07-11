@@ -2,14 +2,16 @@
 <div class="app">
 	<button class="close" href="#"></button>
 	<h2 class="image" style="<%= icon%>"><%= name%></h2>
-	<p class="description">
-		<%= description %>
-	</p>
+	
 	<nav class="admin">
 		<button>Edit</button>
 		<button>New Version</button>
 		<button>Delete</button>
 	</nav>
+
+	<p class="description">
+		<%= description %>
+	</p>
 	<% if(!current) { %>
 		<p>Check back soon for an install.</p> 
 	<% } else { %>
