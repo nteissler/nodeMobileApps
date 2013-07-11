@@ -1,4 +1,6 @@
 //update app.js to route
+//need to be able to update datebase not just add new every time
+
 var path = require('path');
 var join = path.join;
 var fs = require('fs');
@@ -7,11 +9,6 @@ var lib = require('../lib');
 var database = lib.database; 
 
 
-exports.form = function(req,res){
-	res.render('',{
-		appName: "App Setup" //get app name from where
-	});
-};
 
 
 exports.submit = function(appDir){

@@ -23,11 +23,10 @@ app.set("localIconFolder",__dirname+'/public/iconStorage');
 app.use(express.bodyParser());
 
 app.get('/', routes.home);
-app.get('/upload',routes.upload.form);
 //change the app.get to upload to SC3
-app.post('/upload/new',
-	routes.upload.submit(app.get('localAppFolder'),
-						app.get('localIconFolder')));
+app.post('/release',routes.upload.submit(app.get('localAppFolder')));
+app.post('/setup',routes.setup.submit(app.get('localIconFolder')));
+
 
 app.get('/api/seed', routes.api.seed);
 app.get('/api/apps', routes.api.apps);
