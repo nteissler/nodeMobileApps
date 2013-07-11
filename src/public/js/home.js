@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 
 	$("#dialog").on("click", ".close", function(e){
-		$(".wrapper").removeClass("dialog");
+		$("body").removeClass("dialog");
 	});
 
 	$("#dialog, .application").on("click", ".releases .release", function(e){

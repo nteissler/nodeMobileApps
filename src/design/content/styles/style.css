@@ -314,10 +314,6 @@ body.dialog  #dialog{
 	transform: translate3d(0, 0, 0);
 }
 
-body.dialog{
-	overflow:hidden;
-}
-
 #dialog .close{
 	position:absolute;
 	top:1em;
@@ -366,6 +362,16 @@ body.dialog{
 		-ms-transform: translate3d(0, 0, 0);
 		transform: translate3d(0, 0, 0);
 		z-index:0;
+	}
+
+	body.dialog .list{
+		-webkit-transition: height 0s linear .5s;
+		-moz-transition: height 0s linear .5s;
+		-o-transition: height 0s linear .5s;
+		-ms-transition: height 0s linear .5s;
+		transition: height 0s linear .5s;
+		height:0px;
+		overflow:hidden;
 	}
 }
 
