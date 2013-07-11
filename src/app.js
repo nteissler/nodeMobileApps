@@ -39,6 +39,6 @@ app.get("/apps/:name/:platform", routes.home.namedByPlatform);
 app.get(/^(.+)$/, function(req, res,next) {
 	res.sendfile('public/' + req.params[0], function( err ) {
 		res.status(404);
-		res.sendfile('404.html', { root : './public' });
+		res.sendfile('404.html', { root : __dirname + '/public' });
 	});
 });
