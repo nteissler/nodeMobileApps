@@ -1,4 +1,4 @@
-<div class="release">
+<div class="new-release">
 
 	<h2>New Release for <%=name%></h2>
 
@@ -28,8 +28,13 @@
 		<div data-property="New App Package">
 			<input type="file" name='release[file]'>
 		</div>
-
-		<p><input type='submit' value='Add Release'/></p>
+		
+		<div>
+			<textarea type='text' hidden name='release[id]'><%=_id%></textarea>
+		</div>
+		
+			<input type='submit' value='Add Release'/></p>
+			
 
 
 	</form>
