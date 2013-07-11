@@ -5,9 +5,7 @@ $(document).ready(function(){
 
 			var id = $(this).attr('data-id');
 
-			var template = new EJS({url: '/templates/app_detail.ejs'}).update('dialog', '/api/apps/' + id);
-
-			$(".wrapper").addClass("dialog");	
+			showDialog('/templates/app_detail.ejs', '/api/apps/' + id);			
 		}
 
 	});
@@ -48,3 +46,12 @@ $(document).ready(function(){
 	});
 
 })
+
+var showDialog = function( templateUrl, ajaxUrl ) {
+
+	$('#dialog').html("<div class='loading'></div>");
+
+	var template = new EJS({url: templateUrl}).update('dialog', ajaxUrl);
+
+	$(".wrapper").addClass("dialog");
+}
