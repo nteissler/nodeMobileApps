@@ -5,14 +5,14 @@ $(document).ready(function(){
 
 			var id = $(this).attr('data-id');
 
-			var template = new EJS({url: '/templates/releases.ejs'}).update('releases', '/api/apps/' + id);
+			var template = new EJS({url: '/templates/releases.ejs'}).update('dialog', '/api/apps/' + id);
 
-			$(".wrapper").addClass("app-view");	
+			$(".wrapper").addClass("dialog");	
 		}
 	});
 
-	$(".app").on("click", ".close", function(e){
-		$(".wrapper").removeClass("app-view");
+	$("#dialog").on("click", ".close", function(e){
+		$(".wrapper").removeClass("dialog");
 	});
 
 	$(".app").on("click", ".releases .release", function(e){

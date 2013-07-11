@@ -2,13 +2,13 @@ $(document).ready(function(){
 	
 	$(".list .app").on("click", function(e){
 		if(!$(e.target).is("button")){
-			$(".wrapper").addClass("app-view");	
+			$(".wrapper").addClass("dialog");	
 		}
 		
 	});
 
 	$(".app .close").on("click", function(e){
-		$(".wrapper").removeClass("app-view");
+		$(".wrapper").removeClass("dialog");
 	});
 
 	$(".releases").on("click", ".release", function(e){

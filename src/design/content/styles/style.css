@@ -103,9 +103,11 @@ button.close{
 	background:transparent;
 	font-size:2em;
 	color:#232323;
-	width:40px;
-	height:40px;
+	width:30px;
+	height:30px;
+	padding:0;
 	background:url(../images/close.png) no-repeat;
+	background-size:100% 100%;
 }
 
 /*** GLOBAL STUFF ***/
@@ -246,7 +248,7 @@ textarea{
 	
 }
 
-.wrapper > .app{
+#dialog{
 	background:#ffffff;
 	position:fixed;
 	top:0;
@@ -278,7 +280,7 @@ textarea{
 	border-radius:10px;
 }
 
-.wrapper.app-view > .app{
+.wrapper.dialog  #dialog{
 	-webkit-transition: opacity .6s, z-index 0s;
 	-moz-transition: opacity .6s, z-index 0s;
 	-o-transition: opacity .6s, z-index 0s;
@@ -297,8 +299,14 @@ textarea{
 	transform: translate3d(0, 0, 0);
 }
 
+#dialog .close{
+	position:absolute;
+	top:15px;
+	right:15px;
+}
+
 @media screen and (max-width: 42em) {
-	.wrapper > .app{
+	#dialog{
 		background:#ffffff;
 		position:fixed;
 		top:0;
@@ -327,7 +335,7 @@ textarea{
 		opacity:0;
 	}
 
-	.wrapper.app-view > .app{
+	.wrapper.dialog #dialog{
 		-webkit-transition: -webkit-transform .5s;
 		-moz-transition: -moz-transform .5s;
 		-o-transition: -o-transform .5s;
@@ -353,30 +361,26 @@ textarea{
 	background-image: url(../images/app-icon.png) !important; /* remove this */
 }
 
-.wrapper > .app .close{
-	position:absolute;
-	top:15px;
-	right:15px;
-}
 
-.wrapper > .app  nav.admin{
+
+#dialog > .app  nav.admin{
 	padding:1em 0;
 	text-align:left;
 	position:relative;
 }
 
-.wrapper > .app  nav.admin button{
+#dialog > .app  nav.admin button{
 	margin:0 2em 0 0;
 	color:#ca3800;
 	font-family:"Proxima Nova Bold";
 }
 
-.wrapper > .app > .release{
+#dialog > .app > .release{
 	margin:1em 0;
 }
 
 @media screen and (max-width: 42em) {
-	.wrapper > .app  nav.admin{
+	#dialog > .app  nav.admin{
 		padding:1em 0;
 		text-align:left;
 		position:relative;
@@ -386,7 +390,7 @@ textarea{
 		right:-webkit-initial;
 	}
 
-	.wrapper > .app  nav.admin button{
+	#dialog > .app  nav.admin button{
 		margin:0 .2em;
 		color:#ca3800;
 		font-family:"Proxima Nova Bold";
