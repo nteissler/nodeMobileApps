@@ -1,14 +1,17 @@
 <div class="release">
 
 	<h2>New Release for <%=name%></h2>
-	<h3>Current Version: <%=current.version%>
+
+
+
+	<h3><%=(current==null)? "No Releases" : "Current Version: "+ current.version%>
 		–<% if(security.development) { %>
 			Development
 		<% } else { %>
 			Production
 			<% } %>
 	</h3>
-	<button class="close"></button>
+
 
 	<div class="info">
 		
