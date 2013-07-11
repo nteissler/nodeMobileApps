@@ -4,12 +4,13 @@
 
 
 
-	<h3><%=(current==null)? "No Releases" : "Current Version: "+ current.version%>
-		–<% if(security.development) { %>
+	<h3><% if(security.development) { %>
 			Development
 		<% } else { %>
 			Production
 			<% } %>
+		—<%=(current==null)? "No Releases" : "Current Version: "+ current.version%>
+		
 	</h3>
 
 
