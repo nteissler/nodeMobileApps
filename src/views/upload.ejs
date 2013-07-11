@@ -50,13 +50,7 @@
 			<div data-property="Working Group">
 				<input type="text" name = 'app[group]' />
 			</div>
-
-			<div data-property="App Package File">
-				<input type='file' name='app[file]'/>
-			</div>
-
-			<p><input type='submit' value='Upload'/></p>
-		</form>
+		
 
 		</div>
 
@@ -64,35 +58,46 @@
 		
 			<h3>Security</h3>
 			
-			<input type="checkbox" data-property="Development App">		
+			<input type="checkbox" data-property="Development App" name ='app[isDev]'>		
 			
-			<input type="checkbox" data-property="Secured">
+			<input type="checkbox" data-property="Secured" name='app[isSecure]'>
 			
 			<div  data-property="Passcode">
-				<input type="text">
+				<input type="text" name='app[passcode]'>
 			</div>
 			
-			<input type="checkbox" data-property="Hidden">
+			<input type="checkbox" data-property="Hidden" name='app[isHidden]'>
 
 		</div>
+
+	
 		
 	</div>
 
 	<div class="release">
 
 		<h2>New Release</h2>
+		<!--how to differentiate release from update, checkbox or other page-->
 
 		<div class="info">
 			
+			
 			<div data-property="Release Version">
-				<input type="text">
+				<input type="text" name='release[version]'>
 			</div>
 			
 			<div data-property="Release Notes">
-				<textarea type="text"></textarea>
+				<textarea type="text" name='release[notes]'></textarea>
 			</div>
 			
-			<button>FILE GOES HERE </button>
+			<div data-property="New App Package">
+				<input type="file" name='release[file]'>
+			</div>
+
+			<p><input type='submit' value='Upload'/></p>
+
+
+		</form>
 
 		</div>
 		

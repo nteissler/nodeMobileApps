@@ -9,7 +9,7 @@ var database = lib.database;
 
 exports.form = function(req,res){
 	res.render('upload',{
-		title: "New App Upload"
+		title: "App Setup"
 	});
 };
 
@@ -20,16 +20,22 @@ exports.form = function(req,res){
 
 exports.submit = function(dir,iconDir){
 	return function(req,res,next){
-		var appFile = req.files.app.file;
+		//read in data from first app setup
 		var iconFile = req.files.app.icon;
 		var appName = req.body.app.name;
-		var appDesc = "temp descr";
-		//don't forget to handle app description somehow
+		var appDesc = req.body.app.desc;
 		var appPlat = req.body.app.platform;
 		var appGroup = req.body.app.group;
+		var isDev = req.body.app.isDev;
+		var isSec = req.body.app.isSecure;
+		var isHidden = req.body.app.isHidden;
+		var	pass = req.body.app.passcode;
+		//read in from release section
+		var versionNum = req.body.release.version;
+		var releaseNotes = req.body.release.notes;
+		var appFile = req.files.release.file;
 
-		//also handle the security category
-		console.log(dir);
+
 		var appPath = join(dir,appFile.name);
 		var iconPath = join(iconDir,iconFile.name);
 		//save the files to proper location
@@ -43,12 +49,23 @@ exports.submit = function(dir,iconDir){
 		var appMongo = {
 			name : appName,
 			description : appDesc,
-			//icon : iconPath,
+			icon : iconPath,
 			platform : appPlat,
 			clientWorkingGroup : appGroup,
-			isDevelopment : true,//temp
-			releases : [] //temp
+			security: {
+				development: (isDev=='on')?true:false,
+				secured: (isSec=='on')?true:false,
+				passcode: pass,
+				hidden:(isHidden=='on')?true:false
+			},
+			current: {
+				version: versionNum,
+				notes: releaseNotes,
+				file: appPath
+			},
+			releases : [{}]
 		}
+		console.log(appMongo);
 		database.insert('apps', appMongo, function(err, results){
 			res.redirect('/');
 		});
