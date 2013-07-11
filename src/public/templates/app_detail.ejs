@@ -1,33 +1,37 @@
 
 <div class="app">
 	<button class="close" href="#"></button>
+	<h2 class="image" style="<%= icon%>"><%= name%></h2>
+	<p class="description">
+		<%= description %>
+	</p>
 	<nav class="admin">
 		<button>Edit</button>
 		<button>New Version</button>
 		<button>Delete</button>
 	</nav>
-	<p class="description">
-		<%= description %>
-	</p>
-	<h2 class="image" style="<%= icon%>"><%= name%></h2>
-	<div class="release">
-		<div class="version"><%= current.version %></div>
-		<div class="notes">
-			<%= current.notes %>
-		</div>
-		<button class="install">Install</button>
-	</div>
-	<h3>Past releases</h3>
-	<div class="releases">
-		<% for( var i=0; i < releases.length; i++ ) { %>
-			<% var release = releases[i]; %>
-			<div class="release">
-				<div class="version"><%= release.version %></div>
-				<div class="notes">
-					<%= release.notes %>
-				</div>
-				<button class="install">Install</button>
+	<% if(!current) { %>
+		<p>Check back soon for an install.</p> 
+	<% } else { %>
+		<div class="release">
+			<div class="version"><%= current.version %></div>
+			<div class="notes">
+				<%= current.notes %>
 			</div>
-		<% } %>
-	</div>
+			<button class="install">Install</button>
+		</div>
+		<h3>Past releases</h3>
+		<div class="releases">
+			<% for( var i=0; i < releases.length; i++ ) { %>
+				<% var release = releases[i]; %>
+				<div class="release">
+					<div class="version"><%= release.version %></div>
+					<div class="notes">
+						<%= release.notes %>
+					</div>
+					<button class="install">Install</button>
+				</div>
+			<% } %>
+		</div>
+	<% } %>
 </div>

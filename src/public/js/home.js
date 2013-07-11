@@ -15,7 +15,7 @@ $(document).ready(function(){
 		$(".wrapper").removeClass("dialog");
 	});
 
-	$(".app").on("click", ".releases .release", function(e){
+	$("#dialog").on("click", ".releases .release", function(e){
 		if(!$(e.target).is("button")){
 			$(this).toggleClass("active");
 		}
