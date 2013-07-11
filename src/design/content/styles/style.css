@@ -519,7 +519,7 @@ body.dialog  #dialog{
 	background-size:auto 100%;
 	background-position:0 0;
 	background-repeat:no-repeat;
-	background-image: url(../images/app-icon.png) !important; /* remove this */
+	/*background-image: url(../images/app-icon.png) !important; /* remove this */
 }
 
 .application .app  nav.admin{
