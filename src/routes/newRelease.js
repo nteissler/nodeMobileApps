@@ -18,7 +18,8 @@ exports.submit = function(appDir){
 		var versionNum = req.body.release.version;
 		var releaseNotes = req.body.release.notes;
 		var appFile = req.files.release.file;
-		var id = new ObjectID(req.body.app.id) || new ObjectID();
+		var id = (req.body.release.id!=="")? new ObjectID(req.body.release.id): new ObjectID();
+		console.log(id);
 
 		if(appFile.size !==0){
 		var appPath = join(appDir,appFile.name);
@@ -32,6 +33,25 @@ exports.submit = function(appDir){
 				version: versionNum,
 				notes: releaseNotes,
 				file: appPath
-			};
-}
+		};
+
+
+		database.find('apps',{_id:id},{},function(err,array){
+			console.log(array);
+			var doc = array[0];
+			console.log(doc);
+			if (doc.current){
+				var oldRelease = doc.current;
+				doc.releases.push(oldRelease);
+				console.log(oldRelease);
+			}
+			doc.current = releaseMongo;
+			database.update('apps', doc, function(err, results){	
+						res.redirect('/');
+			});
+			//database.insertRelease('apps',{_id: id},{$addToSet:{"releases":oldRelease}});
+
+
+		});
+	}
 }
