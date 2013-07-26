@@ -28,5 +28,5 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 *.DS_Store
 src/node_modules
-src/public/iconStorage
-src/public/appStorage
+src/public/iconStorage/*
+src/public/appStorage/*
