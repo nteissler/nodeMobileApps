@@ -45,6 +45,12 @@ var database = {
 		getCollection(collectionName, function(err,collection){
 			collection.save(document,func);
 		});
+	},
+
+	insertRelease: function(collectionName,doc,update,func){
+		getCollection(collectionName,function(err,collection){
+			collection.update(doc,upate);
+		});
 	}
 }
 
