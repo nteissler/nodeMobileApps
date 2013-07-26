@@ -35,5 +35,5 @@ var searchAndRender = function(query, response) {
 }
 
 module.exports.admin = function(request, response, next) {
-
+	response.render('login');
 };

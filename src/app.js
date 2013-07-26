@@ -58,3 +58,11 @@ passport.use('local', new LocalStrategy( function(username, password, done) {
 		return done( null, { username : 'Admin', isAdmin: true } );
 	}
 }));
+
+passport.serializeUser(function(user, done) {
+	done(null, user);
+});
+
+passport.deserializeUser(function( user, done ){
+	done( null, user );
+});
