@@ -657,9 +657,12 @@ form.authenticate{
 	display:block;
 	margin:20% auto;
 	border-radius:15px;
-	border:2px solid #898989;
 	padding:1em;
-	box-shadow: -4px 4px 38px 5px rgba(0,0,0,.4);
+}
+
+body > .authenticate{
+	border:2px solid #898989;
+	box-shadow: -4px 4px 38px 5px rgba(0,0,0,.4);	
 }
 
 form.authenticate input[type="Submit"]{
