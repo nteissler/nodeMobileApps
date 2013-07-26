@@ -63,7 +63,25 @@ $(document).ready(function(){
 			renderDialog("/templates/setup.ejs", app);			
 	} );
 	}
+
+
+	$(".platform").on('click',function(e){
+		filterPlatform($(this).text());
+	});
 })
+
+
+var filterPlatform = function(platform){
+	var formattedPlatform = platform.trim().toLowerCase();
+	$(".app").each(function(){
+		//alert($(this).data('platform') + "..."+formattedPlatform);
+		if($(this).data("platform").toLowerCase()!==formattedPlatform){
+			$(this).hide();	
+		} else{
+			$(this).show();
+		}
+	});
+}
 
 var showDialogByApp = function( element, templateUrl ) {
 
@@ -74,7 +92,7 @@ var showDialogByApp = function( element, templateUrl ) {
 
 var showDialog = function( templateUrl, ajaxUrl ) {
 
-	$('#content').html("<div class='loading'></div>");
+	$('#content').text("<div class='loading'></div>");
 
 	var template = new EJS({url: templateUrl}).update('content', ajaxUrl);
 
@@ -83,9 +101,9 @@ var showDialog = function( templateUrl, ajaxUrl ) {
 
 var renderDialog = function( templateUrl, data )  {
 
-	$('#content').html("<div class='loading'></div>");
+	$('#content').text("<div class='loading'></div>");
 
-	$("#content").html(new EJS({url: templateUrl}).render(data));
+	$("#content").text(new EJS({url: templateUrl}).render(data));
 
 	$("body").addClass("dialog");
 }
