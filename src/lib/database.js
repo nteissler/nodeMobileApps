@@ -46,6 +46,12 @@ var database = {
 			collection.save(document,func);
 		});
 	}
+
+	delete : function(collectionName, id, func) {
+		getCollection(collectionName, function(err, collection) {
+			collection.remove( { _id: id }, true, func );
+		});
+	}
 }
 
 module.exports = database

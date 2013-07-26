@@ -1,5 +1,6 @@
 var database = require('../lib').database;
 var _ = require('underscore');
+var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function (request, response, next)
 {
@@ -44,4 +45,19 @@ module.exports.admin = function(request, response, next) {
 module.exports.logout = function(req,res,next) {
 	req.logout();
 	res.redirect('/');
+}
+
+module.exports.delete = function(req,res,next) {
+
+	var id = new ObjectID( req.params.id );
+
+	database.delete( 'apps', id, function(err, documentsRemove) {
+
+		if(err) {
+			next(err);
+		} else {
+			res.redirect('/');
+		}
+	});
+
 }

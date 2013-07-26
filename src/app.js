@@ -49,6 +49,7 @@ app.get('/apps/new', ensureAuthenticated, routes.partials.new);
 app.get('/apps/:id/details', routes.partials.appDetail);
 app.get('/apps/:id/newRelease', ensureAuthenticated, routes.partials.newRelease);
 app.get('/apps/:id/edit', ensureAuthenticated, routes.partials.edit);
+app.get('/apps/:id/delete', ensureAuthenticated, routes.home.delete );
 
 app.get('/apps/:name', routes.home.named);
 app.get("/apps/:name/platform/:platform", routes.home.namedByPlatform);
