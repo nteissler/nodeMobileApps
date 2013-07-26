@@ -6,7 +6,11 @@
 		    <li class="platform"><a href="#">Android</a></li>
 		    <li class="platform"><a href="#">iPad</a></li>
 		    <li class="platform"><a href="#">Android Tablet</a></li>
-		    <li class="admin"><a href="#">Create New App</a></li>
+		    <% if( user.isAdmin ) { %>
+		    	<br />
+			    <li class="admin"><a href="#">Create New App</a></li>
+			    <li class="admin"><a href="/logout">Logout</a></li>
+		    <% } %>
 		</ul>
 	</nav>
 
@@ -14,11 +18,13 @@
 
 		<div class="list">
 			<% for( var i = 0; i < apps.length; i++ ) { %>
-				<div class="app" data-id="<%= apps[i]._id %>" data-platform="<%= apps[i].platform %>" data-workinggroup="<%= apps[i].clientWorkingGroup%>" style="background-image:url(<%= apps[i].icon %>)">
+				<div class="app" data-id="<%= apps[i]._id %>" data-platform="<%= apps[i].platform %>" data-workinggroup="<%= apps[i].clientWorkingGroup%>" style="background-image:url(<%= apps[i].icon ? apps[i].icon : '/images/app-icon-default.png' %>)">
 					<h3><%= apps[i].name %></h3>
 					<div class="version"><%= apps[i].current != null ? apps[i].current.version : 'No releases' %></div>
-					<button class="admin" data-action="edit" data-id="<%=apps[i]._id%>">Edit</button>
-					<button class="admin" data-action="newVersion" data-id="<%=apps[i]._id%>">New Version</button>
+					<% if( user.isAdmin ) { %>
+						<button class="admin" data-action="edit" data-id="<%=apps[i]._id%>">Edit</button>
+						<button class="admin" data-action="newVersion" data-id="<%=apps[i]._id%>">New Version</button>
+					<%}%>
 					<% if( !apps[i].security.secured) { %>
 						<button class="install">Install</button>
 					<% } %>

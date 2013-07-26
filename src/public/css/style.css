@@ -112,7 +112,7 @@ button.close{
 	width:30px;
 	height:30px;
 	padding:0;
-	background:url(../images/close.png) no-repeat;
+	background:url(/images/close.png) no-repeat;
 	background-size:100% 100%;
 }
 
@@ -134,7 +134,7 @@ header h1{
 	padding-left:74px;
 	padding-top: .3em;
 	height:60px;
-	background:url(../images/mobileapps-logo.png) no-repeat;
+	background:url(/images/mobileapps-logo.png) no-repeat;
 	background-size: auto 100%;
 	box-sizing:border-box;
 }
@@ -250,6 +250,7 @@ textarea{
 	background-repeat:no-repeat;
 	margin:0px 0px 15px 2%;
 	width:96%;
+	min-height:90px;
 	/*background-image: url(../images/app-icon.png) !important;*/
 	/* remove this */
 	-webkit-transition: background-color .4s;
@@ -344,7 +345,7 @@ body.dialog  #dialog{
 		-ms-transform: translate3d(100%, 0, 0);
 		transform: translate3d(100%, 0, 0);
 
-		box-shadow:none;
+		box-shadow:-8px 0px 10px rgba(0,0,0,.3);
 		border-radius:0;
 		z-index:0;
 		opacity:0;
@@ -370,7 +371,7 @@ body.dialog  #dialog{
 		-o-transition: height 0s linear .5s;
 		-ms-transition: height 0s linear .5s;
 		transition: height 0s linear .5s;
-		height:0px;
+		/*height:0px;*/
 		overflow:hidden;
 	}
 }
@@ -570,9 +571,13 @@ body.dialog  #dialog{
 
 .description{
 	box-sizing:border-box;
-	padding:.5em;
-	margin:.5em 0 1em 0;
+	padding:1em;
+	margin:1em 0 1em 0;
+	box-shadow:3px 3px 6px rgba(0,0,0,.3);
+	border-radius:10px;
 	width:96%;
+	background: #282828;
+	color: #ffffff;
 }
 
 #dialog button.install, .application button.install{
@@ -620,3 +625,24 @@ body.dialog  #dialog{
 	left: 12px;
 }
 
+/*** AUTHENTICATION ***/
+
+form.authenticate{
+	width:30%;
+	height:auto;
+	display:block;
+	margin:20% auto;
+	border-radius:15px;
+	border:2px solid #898989;
+	padding:1em;
+	box-shadow: -4px 4px 38px 5px rgba(0,0,0,.4);
+}
+
+form.authenticate input[type="Submit"]{
+	margin-top:1em;
+}
+
+@media screen and (max-width: 42em) {
+	form.authenticate{
+	width:85%;
+}

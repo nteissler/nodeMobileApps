@@ -1,6 +1,6 @@
 
 <div class="app">
-	<h2 class="image" style="<%= app.icon%>"><%= app.name%></h2>
+	<h2 class="image" style="background-image:url(<%= app.icon ? app.icon : '/images/app-icon-default.png' %>)"><%= app.name%></h2>
 	
 	<nav class="admin">
 		<button class="admin">Edit</button>
