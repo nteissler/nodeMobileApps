@@ -141,8 +141,8 @@ var showDialog = function(templateUrl) {
 	});
 }
 
-var deletePrompt(element) {
-	
+var deletePrompt = function(element) {
+
 	var response = confirm('Are you sure you want to delete this app?');
 	if( response === true ) {
 		var id = element.data('id');
