@@ -34,7 +34,7 @@
 					<div class="notes">
 						<%- release.notes %>
 					</div>
-					<button class="install">Install</button>
+					<button onclick="window.location='<%= app.releases[i].file %>'" class="install">Install</button>
 				</div>
 			<% } %>
 		</div>
