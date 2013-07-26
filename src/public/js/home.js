@@ -140,16 +140,19 @@ var showDialogByApp = function( element, templateUrl ) {
 
 	var id = element.data('id');
 
-	showDialog(templateUrl, '/api/apps/' + id);
-}
-
-var showDialog = function( templateUrl, ajaxUrl ) {
-
 	$('#content').html("<div class='loading'></div>");
 
-	var template = new EJS({url: templateUrl}).update('content', ajaxUrl);
-
 	$("body").addClass("dialog");
+
+	$.ajax({
+		url: '/partial/app_detail/' + id,
+		success: function(html) {
+			$('#content').html(html);
+		},
+		error: function() {
+			$('#content').html('<span>There was an error loading the details for this application</span>');
+		}
+	});
 }
 
 var renderDialog = function( templateUrl, data )  {

@@ -1,0 +1,42 @@
+
+<div class="app">
+	<h2 class="image" style="background-image:url(<%= app.icon ? app.icon : '/images/app-icon-default.png' %>)"><%= app.name%></h2>
+
+	<% if(user.isAdmin) { %>	
+	<nav class="admin">
+		<button class="admin">Edit</button>
+		<button class="admin">New Version</button>
+		<button class="admin">Delete</button>
+	</nav>
+	<% } %>
+
+	<h3>Description</h3>
+	<p class="description">
+		<%= app.description %>
+	</p>
+	<% if(!app.current) { %>
+		<p>Check back soon for an install.</p> 
+	<% } else { %>
+		<h3>Latest Release</h3>
+		<div class="latest release">
+			<div class="version"><%= app.current.version %></div>
+			<div class="notes">
+				<%- app.current.notes %>
+			</div>
+			<button class="install">Install</button>
+		</div>
+		<h3>Past releases</h3>
+		<div class="releases">
+			<% for( var i=0; i < app.releases.length; i++ ) { %>
+				<% var release = app.releases[i]; %>
+				<div class="release">
+					<div class="version"><%= release.version %></div>
+					<div class="notes">
+						<%- release.notes %>
+					</div>
+					<button class="install">Install</button>
+				</div>
+			<% } %>
+		</div>
+	<% } %>
+</div>

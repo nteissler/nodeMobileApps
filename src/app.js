@@ -38,6 +38,8 @@ app.get('/admin', routes.home.admin );
 app.get('/authenticate', passport.authenticate('local', {session:true, successRedirect: '/', failureRedirect: '/admin' }));
 app.get('/logout', routes.home.logout );
 
+app.get('/partial/app_detail/:id', routes.partials.appDetail);
+
 //change the app.get to upload to SC3
 app.post('/release',routes.newRelease.submit(app.get('localAppFolder')));
 app.post('/setup',routes.setup.submit(app.get('localIconFolder')));
