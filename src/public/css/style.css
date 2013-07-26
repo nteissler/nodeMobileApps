@@ -50,6 +50,11 @@
 
 /* CSS */
 
+*{
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+}
+
 body:not(.admin) .admin{
 	/*display:none !important;*/
 }
@@ -114,7 +119,7 @@ button.close{
 	padding:0;
 	background:url(/images/close.png) no-repeat;
 	background-size:100% 100%;
-	-webkit-transform:translateZ(10px);
+	z-index:200;
 }
 
 /*** GLOBAL STUFF ***/
@@ -295,6 +300,11 @@ textarea{
 	z-index:-1;
 	box-shadow: -4px 4px 38px 5px rgba(0,0,0,.4);
 	border-radius:10px;
+}
+
+.filterStatus{
+	box-sizing:border-box;
+	padding:15px 15px 10px 15px;
 }
 
 body.dialog  #dialog{

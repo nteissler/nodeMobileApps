@@ -138,7 +138,7 @@ var showDialogByApp = function( element, templateUrl ) {
 
 var showDialog = function( templateUrl, ajaxUrl ) {
 
-	$('#content').text("<div class='loading'></div>");
+	$('#content').html("<div class='loading'></div>");
 
 	var template = new EJS({url: templateUrl}).update('content', ajaxUrl);
 
@@ -147,9 +147,9 @@ var showDialog = function( templateUrl, ajaxUrl ) {
 
 var renderDialog = function( templateUrl, data )  {
 
-	$('#content').text("<div class='loading'></div>");
+	$('#content').html("<div class='loading'></div>");
 
-	$("#content").text(new EJS({url: templateUrl}).render(data));
+	$("#content").html(new EJS({url: templateUrl}).render(data));
 
 	$("body").addClass("dialog");
 }
