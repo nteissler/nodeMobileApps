@@ -1,13 +1,25 @@
+/*** DETECT TOUCH SCREEN OR NORMAL SCREEN ***/
+	var eventstring = ""
+   	var el = document.createElement('div');
+   	el.setAttribute('ongesturestart', 'return;');
+   	if(typeof el.ongesturestart === "function"){
+   		eventstring = "touchstart";
+   	}else{
+   		eventstring = "click";
+   }
+
+ /***									 ***/
+
 $(document).ready(function(){
 	
-	$(".list .app").on("click", function(e){
+	$(".list .app").on(eventstring, function(e){
 		if(!$(e.target).is("button")){
 
 			showDialogByApp($(this), '/templates/app_detail.ejs');			
 		}
 	});
 
-	$(".list .admin").on("click",function(e){
+	$(".list .admin").on(eventstring,function(e){
 		var id = $(this).attr('data-id');
 		switch($(e.target).attr("data-action")){
 			
@@ -21,11 +33,11 @@ $(document).ready(function(){
 	});
 
 
-	$("#dialog").on("click", ".close", function(e){
+	$("#dialog").on(eventstring, ".close", function(e){
 		$("body").removeClass("dialog");
 	});
 
-	$("#dialog, .application").on("click", ".releases .release", function(e){
+	$("#dialog, .application").on(eventstring, ".releases .release", function(e){
 		if(!$(e.target).is("button")){
 			console.log(e);
 			$(this).toggleClass("active");
@@ -41,7 +53,7 @@ $(document).ready(function(){
 			}
 		});
 
-		$("nav .admin").on("click", function() {
+		$("nav .admin").on(eventstring, function() {
 			var app = { 
 				app : {
 					name : '',
