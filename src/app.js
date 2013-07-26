@@ -23,6 +23,8 @@ app.set("localAppFolder",__dirname+'/public/appStorage');
 app.set("localIconFolder",__dirname+'/public/iconStorage');
 
 app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(express.session({secret: 'turner'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -63,6 +65,6 @@ passport.serializeUser(function(user, done) {
 	done(null, user);
 });
 
-passport.deserializeUser(function( user, done ){
-	done( null, user );
+passport.deserializeUser(function(user, done){
+	done(null, user);
 });
