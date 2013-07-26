@@ -38,17 +38,17 @@ app.get('/authenticate', passport.authenticate('local', {session:true, successRe
 app.get('/logout', routes.home.logout );
 
 //change the app.get to upload to SC3
-app.post('/release',routes.newRelease.submit(app.get('localAppFolder')));
-app.post('/setup',routes.setup.submit(app.get('localIconFolder')));
+app.post('/release', ensureAuthenticated, routes.newRelease.submit(app.get('localAppFolder')));
+app.post('/setup', ensureAuthenticated, routes.setup.submit(app.get('localIconFolder')));
 
 app.get('/api/seed', routes.api.seed);
 app.get('/api/apps', routes.api.apps);
 app.get('/api/apps/:id', routes.api.appById);
 
-app.get('/apps/new', routes.partials.new);
+app.get('/apps/new', ensureAuthenticated, routes.partials.new);
 app.get('/apps/:id/details', routes.partials.appDetail);
-app.get('/apps/:id/newRelease', routes.partials.newRelease);
-app.get('/apps/:id/edit', routes.partials.edit);
+app.get('/apps/:id/newRelease', ensureAuthenticated, routes.partials.newRelease);
+app.get('/apps/:id/edit', ensureAuthenticated, routes.partials.edit);
 
 app.get('/apps/:name', routes.home.named);
 app.get("/apps/:name/platform/:platform", routes.home.namedByPlatform);
@@ -77,3 +77,13 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done){
 	done(null, user);
 });
+
+// Simple route middleware to ensure user is authenticated.
+//   Use this route middleware on any resource that needs to be protected.  If
+//   the request is authenticated (typically via a persistent login session),
+//   the request will proceed.  Otherwise, the user will be redirected to the
+//   login page.
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/admin');
+}
