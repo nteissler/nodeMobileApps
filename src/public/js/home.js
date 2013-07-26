@@ -13,10 +13,6 @@
 
 $(document).ready(function(){
 
-	$.cookie.json = true;
-
-	var user = $.cookie('user');
-	
 	if(eventstring == "touchend"){
 		var fullstring = "touchstart touchend";	
 	}else{
@@ -48,7 +44,7 @@ $(document).ready(function(){
 		switch($(e.target).attr("data-action")){
 			
 			case "edit":
-				showDialogByApp($(this),'/templates/setup.ejs');
+				showDialogByApp($(this),'/apps/:id/edit');
 				break;
 			case "newVersion":
 				showDialogByApp($(this),'/apps/:id/newRelease');

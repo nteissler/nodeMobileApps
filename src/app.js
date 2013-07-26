@@ -29,7 +29,6 @@ app.configure(function(){
 	app.use(express.session({secret: 'turner', cookie: { httpOnly: false }}));
 	app.use(passport.initialize());
 	app.use(passport.session());
-	app.use(setUserCookies);
 	app.use(app.router);
 });
 
@@ -48,6 +47,7 @@ app.get('/api/apps/:id', routes.api.appById);
 
 app.get('/apps/:id/details', routes.partials.appDetail);
 app.get('/apps/:id/newRelease', routes.partials.newRelease);
+app.get('/apps/:id/edit', routes.partials.edit);
 
 app.get('/apps/:name', routes.home.named);
 app.get("/apps/:name/platform/:platform", routes.home.namedByPlatform);
@@ -76,14 +76,3 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done){
 	done(null, user);
 });
-
-function setUserCookies(req,res,next) {
-
-	var user = req.user || { username: 'default', isAdmin: false};
-
-	console.log(user);
-
-	res.cookie('user', JSON.stringify(user));
-
-	next();
-}
