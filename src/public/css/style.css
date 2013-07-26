@@ -644,5 +644,5 @@ form.authenticate input[type="Submit"]{
 
 @media screen and (max-width: 42em) {
 	form.authenticate{
-	width:96%;
+	width:85%;
 }
