@@ -19,7 +19,7 @@
 					<div class="version"><%= apps[i].current != null ? apps[i].current.version : 'No releases' %></div>
 					<button class="admin" data-action="edit" data-id="<%=apps[i]._id%>">Edit</button>
 					<button class="admin" data-action="newVersion" data-id="<%=apps[i]._id%>">New Version</button>
-					<% if( !apps[i].security.secured) ) { %>
+					<% if( !apps[i].security.secured) { %>
 						<button class="install">Install</button>
 					<% } %>
 				</div>
