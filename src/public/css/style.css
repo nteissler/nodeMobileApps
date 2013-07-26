@@ -1,0 +1,622 @@
+/* FONT STUFF */
+
+@font-face {
+	font-family: 'Proxima Nova';
+	src: url('fonts/proxima_nova_reg-webfont.eot');
+	src: url('fonts/proxima_nova_reg-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/proxima_nova_reg-webfont.woff') format('woff'),
+	     url('fonts/proxima_nova_reg-webfont.ttf') format('truetype'),
+	     url('fonts/proxima_nova_reg-webfont.svg#ProximaNovaRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+	
+@font-face {
+	font-family: 'Proxima Nova Thin';
+	src: url('fonts/proxima_nova_thin-webfont.eot');
+	src: url('fonts/proxima_nova_thin-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/proxima_nova_thin-webfont.woff') format('woff'),
+		 url('fonts/proxima_nova_thin-webfont.ttf') format('truetype'),
+		 url('fonts/proxima_nova_thin-webfont.svg#ProximaNovaThin') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Nova Bold';
+    src: url('fonts/proxima_nova_bold-webfont.eot');
+    src: url('fonts/proxima_nova_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proxima_nova_bold-webfont.woff') format('woff'),
+         url('fonts/proxima_nova_bold-webfont.ttf') format('truetype'),
+         url('fonts/proxima_nova_bold-webfont.svg#proxima_nova_rgbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Proxima Nova Black';
+    src: url('fonts/proxima_nova_black-webfont.eot');
+    src: url('fonts/proxima_nova_black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/proxima_nova_black-webfont.woff') format('woff'),
+         url('fonts/proxima_nova_black-webfont.ttf') format('truetype'),
+         url('fonts/proxima_nova_black-webfont.svg#proxima_novablack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+/* CSS */
+
+body:not(.admin) .admin{
+	/*display:none !important;*/
+}
+
+html, body{
+	width:100%;
+	height:100%;
+}
+
+body{
+	margin:0;	
+	position:relative;
+	font-family:"Proxima Nova", Helvetica, Arial, sans-serif;
+}
+
+@media screen and (max-width: 40em) {
+	body{
+	 	overflow-x:hidden;
+	}
+}
+
+
+h1,h2,h3,h4,h5,h6{
+	margin:0;
+	padding:0;
+	font-family: "Proxima Nova Bold";
+	font-weight:normal;
+}
+
+a{
+	text-decoration:none;
+	color:#1c75bc;
+	font-family:"Proxima Nova Bold";
+}
+
+p{
+	margin:0;
+	padding:0;
+}
+
+button, input[type="file"], input[type="submit"]{
+	cursor:pointer;
+	border-radius:.2em;
+	border:0px;
+	padding:.4em 1em;
+	background:#282828;
+	color:#ffffff;
+	font-size:1em;
+}
+
+button.install{
+	font-family:"Proxima Nova Bold";
+	padding:.4em 2em;
+}
+
+button.close{
+	background:transparent;
+	font-size:2em;
+	color:#232323;
+	width:30px;
+	height:30px;
+	padding:0;
+	background:url(../images/close.png) no-repeat;
+	background-size:100% 100%;
+}
+
+/*** GLOBAL STUFF ***/
+
+header{
+	padding-top:.5em;
+	width:38%;
+	height:50px;
+}
+
+header a{
+	color:#121212;
+}
+
+header h1{
+	font-family: "Proxima Nova Thin";
+	font-size:1.8em;
+	padding-left:74px;
+	padding-top: .3em;
+	height:60px;
+	background:url(../images/mobileapps-logo.png) no-repeat;
+	background-size: auto 100%;
+	box-sizing:border-box;
+}
+
+header h1 span{
+	font-family: "Proxima Nova Black";
+}
+
+/*** ADMIN STUFF ***/
+
+*[data-property]{
+	display:block;
+	position:relative;
+	margin-top:12px;
+}
+
+*[data-property]:before{
+	content: attr(data-property);
+	display:block;
+	position:relative;
+	font-size:.8em;
+	width:160px;
+}
+
+input[type="checkbox"][data-property]:before{
+	content:"";
+}
+
+input[type="checkbox"][data-property]:after{
+	content: attr(data-property);
+	display:block;
+	position:relative;	
+	margin-left:20px;
+	width:150px;
+}
+
+input[type="text"], textarea{
+	width:260px;
+}
+
+input[type="file"]{
+	width:240px;
+	font-size:.8em;
+}
+
+textarea{
+	height:100px;
+}
+
+.edit, .release{
+	box-sizing:border-box;
+	padding:10px 0;
+	/*border-radius:10px;
+	border:1px solid #eeeeee;*/
+	width:96%;
+	/*margin:0 5%;*/
+}
+
+.edit h2, .release h2{
+	margin-bottom:10px;
+}
+
+.edit .info, .edit .security{
+	display:inline-block;
+	vertical-align: top;
+	margin:0 15px 0 10px;
+}
+
+.edit > div > *:not(h3){
+	margin-left:10px;
+}
+
+.edit .icon{
+	background-size:cover;
+	background-repeat:no-repeat;
+	margin-top:25px;
+	/*width:50px;
+	height:50px;
+	background-color:#aaaaaa;*/
+}
+
+.edit .icon:before{
+	content: attr(data-property);
+	display: block;
+	height: 30px;
+	position: absolute;
+	top: -18px;
+}
+
+
+
+/*** APP LIST AND THINGS ***/
+
+.wrapper{
+	width:100%;
+	position:relative;
+}
+
+.list{
+	padding-top:1.6em;
+}
+
+.list .app{
+	cursor:pointer;
+	padding:.5em;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+	padding-left:5.5em;
+	background-size:auto 4.5em;
+	background-position:.5em .5em;
+	background-repeat:no-repeat;
+	margin:0px 0px 15px 2%;
+	width:96%;
+	/*background-image: url(../images/app-icon.png) !important;*/
+	/* remove this */
+	-webkit-transition: background-color .4s;
+	-moz-transition: background-color .4s;
+	-o-transition: background-color .4s;
+	-ms-transition: background-color .4s;
+	transition: background-color .4s;
+}
+
+.list .app:hover{
+	background-color:#dfdfdf;	
+}
+
+#dialog{
+	background:#ffffff;
+	position:fixed;
+	top:0;
+	left:0;
+	width:80%;
+	height:90%;
+	margin:5% 10%;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	box-sizing:border-box;
+	padding:15px 0px 15px 30px;
+	-webkit-transition: opacity .6s, z-index 0s linear .6s, -webkit-transform 0s linear .6s;
+	-moz-transition: opacity .6s, z-index 0s linear .6s, -webkit-transform 0s linear .6s;
+	-o-transition: opacity .6s, z-index 0s linear .6s, -webkit-transform 0s linear .6s;
+	-ms-transition: opacity .6s, z-index 0s linear .6s, -webkit-transform 0s linear .6s;
+	transition: opacity .6s, z-index 0s linear .6s, -webkit-transform 0s linear .6s;
+
+	-webkit-transform: translate3d(100%, 0, 0);
+	-moz-transform: translate3d(100%, 0, 0);
+	-o-transform: translate3d(100%, 0, 0);
+	-ms-transform: translate3d(100%, 0, 0);
+	transform: translate3d(100%, 0, 0);
+
+	opacity:0;
+
+	z-index:-1;
+	box-shadow: -4px 4px 38px 5px rgba(0,0,0,.4);
+	border-radius:10px;
+}
+
+body.dialog  #dialog{
+	-webkit-transition: opacity .6s, z-index 0s;
+	-moz-transition: opacity .6s, z-index 0s;
+	-o-transition: opacity .6s, z-index 0s;
+	-ms-transition: opacity .6s, z-index 0s;
+	transition: opacity .6s, z-index 0s;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity:1;
+	z-index:15000;
+	overflow-y:auto;
+
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+#dialog .close{
+	position:absolute;
+	top:1em;
+	right:1em;
+}
+
+@media screen and (max-width: 42em) {
+	#dialog{
+		background:#ffffff;
+		position:fixed;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+		margin:0;
+		overflow-y:auto;
+		box-sizing:border-box;
+		padding-left:15px;
+		-webkit-transition: -webkit-transform .5s, opacity 0s linear .5s;
+		-moz-transition: -moz-transform .5s, opacity 0s linear .5s;
+		-o-transition: -o-transform .5s, opacity 0s linear .5s;
+		-ms-transition: -ms-transform .5s, opacity 0s linear .5s;
+		transition: transform .5s; opacity 0s linear .5s;
+
+		-webkit-transform: translate3d(100%, 0, 0);
+		-moz-transform: translate3d(100%, 0, 0);
+		-o-transform: translate3d(100%, 0, 0);
+		-ms-transform: translate3d(100%, 0, 0);
+		transform: translate3d(100%, 0, 0);
+
+		box-shadow:none;
+		border-radius:0;
+		z-index:0;
+		opacity:0;
+	}
+
+	body.dialog #dialog{
+		-webkit-transition: -webkit-transform .5s;
+		-moz-transition: -moz-transform .5s;
+		-o-transition: -o-transform .5s;
+		-ms-transition: -ms-transform .5s;
+		transition: transform .5s;
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-o-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		z-index:0;
+	}
+
+	body.dialog .list{
+		-webkit-transition: height 0s linear .5s;
+		-moz-transition: height 0s linear .5s;
+		-o-transition: height 0s linear .5s;
+		-ms-transition: height 0s linear .5s;
+		transition: height 0s linear .5s;
+		height:0px;
+		overflow:hidden;
+	}
+}
+
+#dialog #content{
+	padding-top:1em;
+}
+
+.app h2.image, .edit h2.image{
+	padding-left:60px;
+	padding-top:10px;
+	margin-bottom:.4em;
+	height:50px;
+	box-sizing:border-box;
+	background-size:auto 100%;
+	background-position:0 0;
+	background-repeat:no-repeat;
+	/*background-image: url(../images/app-icon.png) !important; /* remove this */
+}
+
+
+
+#dialog #content > .app  nav.admin{
+	padding:0 0 .5em 0;
+	text-align:left;
+	position:relative;
+}
+
+#dialog #content > .app  nav.admin button{
+	margin:0 2em 0 0;
+	color:#ca3800;
+	font-family:"Proxima Nova Bold";
+}
+
+#dialog #content > .app > .release{
+	margin:1em 0;
+	
+}
+
+#dialog #content .release{
+	border-radius:10px;
+	border:1px solid #898989;
+	padding:.5em;
+	box-sizing:border-box;
+}
+
+@media screen and (max-width: 42em) {
+	#dialog #content > .app  nav.admin{
+		padding:1em 0;
+		text-align:left;
+		position:relative;
+		top:0;
+		left:0;
+		right:0;
+		right:-webkit-initial;
+	}
+
+	#dialog #content > .app  nav.admin button{
+		margin:0 .2em;
+		color:#ca3800;
+		font-family:"Proxima Nova Bold";
+	}
+}
+
+
+.list .app .version{
+	font-family:"Proxima Nova";
+}
+
+.app .version {
+	font-family:"Proxima Nova Bold";
+	font-size:.8em;
+}
+
+.app .release .notes{
+	padding:10px;
+	box-sizing:border-box;
+}
+
+.latest.release button.install{
+	width:6em;
+	height:1.5em;
+	font-size:1.6em;
+	padding:0;
+	display:block;
+	margin:0 auto;
+}
+
+.latest.release .version:before, .releases .release .version:before{
+	content:"Version ";
+}
+
+.releases .release.active .notes{
+	-webkit-transition: max-height .4s;
+	max-height:300px;
+}
+
+.releases .release.active button{
+	display:block;
+}
+
+.releases .release{
+	cursor:pointer;
+	margin:1em 0 1em 0;
+	-webkit-transition: background-color .4s;
+	-moz-transition: background-color .4s;
+	-o-transition: background-color .4s;
+	-ms-transition: background-color .4s;
+	transition: background-color .4s;
+}
+
+.releases .release:hover{
+	background-color:#dfdfdf;	
+
+}
+
+.app button.admin{
+	color:#ca3800;
+	font-family:"Proxima Nova Bold";
+}
+
+.releases .release:not(.active) .notes{
+	padding:0;
+	max-height:0px;
+	overflow:hidden;
+}
+
+.releases .release button{
+	display:none;
+}
+
+/*** SINGLE APPLICATION PAGE  ***/
+  
+.application{
+    margin:2em;
+    box-sizing:border-box;
+    /*border:8px double #eeeeee;*/
+}
+
+.app h2.image{
+	padding-left:60px;
+	padding-top:10px;
+	margin-bottom:1em;
+	height:50px;
+	box-sizing:border-box;
+	background-size:auto 100%;
+	background-position:0 0;
+	background-repeat:no-repeat;
+	/*background-image: url(../images/app-icon.png) !important; /* remove this */
+}
+
+.application .app  nav.admin{
+	padding:1em 0;
+	text-align:left;
+	position:relative;
+}
+
+.application .app  nav.admin button{
+	margin:0 2em 0 0;
+	color:#ca3800;
+	font-family:"Proxima Nova Bold";
+}
+
+.application .app > .release{
+	margin:1em 0;
+	
+}
+
+.application .release{
+	border-radius:10px;
+	border:1px solid #eeeeee;
+	padding:.5em;
+	box-sizing:border-box;
+}
+
+.application .admin{
+	display:none !important;
+}
+
+@media screen and (max-width: 42em) {
+	#dialog #content > .app  nav.admin{
+		padding:1em 0;
+		text-align:left;
+		position:relative;
+		top:0;
+		left:0;
+		right:0;
+		right:-webkit-initial;
+	}
+
+	#dialog #content > .app  nav.admin button{
+		margin:0 .2em;
+		color:#ca3800;
+		font-family:"Proxima Nova Bold";
+	}
+}
+
+.description{
+	box-sizing:border-box;
+	padding:.5em;
+	margin:.5em 0 1em 0;
+	width:96%;
+}
+
+#dialog button.install, .application button.install{
+	margin-top:.5em;
+	margin-bottom:.5em;
+}
+
+
+
+/*** LOADING ***/
+
+.loading:before{
+	display: block;
+	content:"";
+	width:8px;
+	height:8px;
+	border-radius:4px;
+	background-color:#83eac0;
+
+	position: absolute;
+	top: 0;
+	left: -12px;
+}
+
+.loading{
+	position:absolute;
+	top:45%;
+	left:50%;
+	margin-left:-4px;
+	display: block;
+	width:8px;
+	height:8px;
+	border-radius:4px;
+	background-color:#1c75bc;
+}
+
+.loading:after{
+	display: block;
+	content:"";
+	width:8px;
+	height:8px;
+	border-radius:4px;
+	background-color:#ffae15;	
+	position: absolute; top: 0; 
+	left: 12px;
+}
+
