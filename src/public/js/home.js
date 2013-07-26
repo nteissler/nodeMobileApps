@@ -34,10 +34,10 @@ $(document).ready(function(){
 		if(!$(e.target).is("button") && e.type != "touchstart"){
 			if(e.type == "touchend"){
 				if(Math.abs(e.originalEvent.changedTouches[0].pageY - eventCache.startY) < 10){
-					showDialogByApp($(this), '/templates/app_detail.ejs');					
+					showDialogByApp($(this), '/partial/app_detail');					
 				}
 			}else{
-				showDialogByApp($(this), '/templates/app_detail.ejs');
+				showDialogByApp($(this), '/partial/app_detail');
 			}
 			
 		}
@@ -140,17 +140,22 @@ var showDialogByApp = function( element, templateUrl ) {
 
 	var id = element.data('id');
 
+	showDialog(templateUrl + '/' + id);
+}
+
+var showDialog = function(templateUrl) {
+
 	$('#content').html("<div class='loading'></div>");
 
 	$("body").addClass("dialog");
 
 	$.ajax({
-		url: '/partial/app_detail/' + id,
+		url: templateUrl,
 		success: function(html) {
 			$('#content').html(html);
 		},
 		error: function() {
-			$('#content').html('<span>There was an error loading the details for this application</span>');
+			$('#content').html('<span>Whoops, something went wrong</span>');
 		}
 	});
 }
