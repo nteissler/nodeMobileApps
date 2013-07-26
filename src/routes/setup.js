@@ -12,7 +12,7 @@ var ObjectID = require('mongodb').ObjectID;
 
 
 
-exports.submit = function(iconDir){
+exports.submit = function(iconDir, iconURL){
 	return function(req,res,next){
 		var iconFile = req.files.app.icon;
 		var appName = req.body.app.name;
@@ -50,7 +50,7 @@ exports.submit = function(iconDir){
 					var updating = appArray[0];
 					updating.name = appName;
 					updating.description = appDesc;
-					updating.icon = iconPath;
+					updating.icon = join(iconURL, iconFile.name);
 					updating.platform = appPlat;
 					updating.clientWorkingGroup = appGroup;
 					updating.security = {
@@ -69,7 +69,7 @@ exports.submit = function(iconDir){
 			var appMongo = { 
 	                name : appName,
 	                description : appDesc,
-	                icon : iconPath,
+	                icon : join(iconURL, iconFile.name),
 	                platform : appPlat,
 	                clientWorkingGroup : appGroup,
 	                security: {

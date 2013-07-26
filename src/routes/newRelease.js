@@ -12,7 +12,7 @@ var ObjectID = require('mongodb').ObjectID;
 
 
 
-exports.submit = function(appDir){
+exports.submit = function(appDir, appURL){
 	return function(req,res,next){
 		//read in from release section
 		var versionNum = req.body.release.version;
@@ -36,7 +36,7 @@ exports.submit = function(appDir){
 		var releaseMongo = {
 				version: versionNum,
 				notes: releaseNotes,
-				file: appPath
+				file: join(appURL,appFile.name)
 		};
 
 

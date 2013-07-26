@@ -23,6 +23,8 @@ app.configure(function(){
 
 	app.set("localAppFolder",__dirname+'/public/appStorage');
 	app.set("localIconFolder",__dirname+'/public/iconStorage');
+	app.set("iconFolderURL", "/iconStorage");
+	app.set("appFolderURL", "/appStorage");
 
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
@@ -38,8 +40,8 @@ app.get('/authenticate', passport.authenticate('local', {session:true, successRe
 app.get('/logout', routes.home.logout );
 
 //change the app.get to upload to SC3
-app.post('/release', ensureAuthenticated, routes.newRelease.submit(app.get('localAppFolder')));
-app.post('/setup', ensureAuthenticated, routes.setup.submit(app.get('localIconFolder')));
+app.post('/release', ensureAuthenticated, routes.newRelease.submit(app.get('localAppFolder'), app.get('appFolderURL')));
+app.post('/setup', ensureAuthenticated, routes.setup.submit( app.get('localIconFolder'), app.get('iconFolderURL') ) );
 
 app.get('/api/seed', routes.api.seed);
 app.get('/api/apps', routes.api.apps);
