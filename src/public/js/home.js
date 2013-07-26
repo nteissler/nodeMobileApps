@@ -39,7 +39,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$(".list .admin").on(eventstring,function(e){
+	$(".list, #dialog").on(eventstring, ".admin",function(e){
 		var id = $(this).attr('data-id');
 		switch($(e.target).attr("data-action")){
 			

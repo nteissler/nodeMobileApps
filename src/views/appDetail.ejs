@@ -4,8 +4,8 @@
 
 	<% if(user.isAdmin) { %>	
 	<nav class="admin">
-		<button class="admin">Edit</button>
-		<button class="admin">New Version</button>
+		<button class="admin" data-action="edit" data-id="<%=apps[i]._id%>">Edit</button>
+		<button class="admin" data-action="newVersion" data-id="<%=apps[i]._id%>">New Version</button>
 		<button class="admin">Delete</button>
 	</nav>
 	<% } %>
