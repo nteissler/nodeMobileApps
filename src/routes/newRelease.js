@@ -33,16 +33,5 @@ exports.submit = function(appDir){
 				notes: releaseNotes,
 				file: appPath
 			};
-
-			/*database.find(apps,{_id:id},{},function(err,appArray){
-				var release = appArray[0];
-			}
-			}
-			res.redirect('/');
-
-		//upload the mongo object
-		//save files to sc3
-		
-
-	}
-};
+}
+}
