@@ -1,0 +1,161 @@
+body,html{
+	margin:0;
+}
+
+.guy{
+	width:188px;
+	height:318px;
+	background:url(../images/404guy.png) no-repeat;
+	top:0;
+	left:0;
+	margin:10px auto;
+	-webkit-transform-origin:100% 100%;
+	-moz-transform-origin:100% 100%;
+	-o-transform-origin:100% 100%;
+	-ms-transform-origin:100% 100%;
+	transform-origin:100% 100%;
+	-webkit-animation-name: guy;
+	-moz-animation-name: guy;
+	-ms-animation-name: guy;
+	-o-animation-name: guy;
+	animation-name: guy;
+	-webkit-animation-duration:1.5s;
+	-webkit-animation-fill-mode:forwards;
+	-moz-animation-fill-mode:forwards;
+	-ms-animation-fill-mode:forwards;
+	-o-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+	-webkit-animation-timing-function:linear;
+	-moz-animation-timing-function:linear;
+	-ms-animation-timing-function:linear;
+	-o-animation-timing-function:linear;
+	animation-timing-function:linear;
+	-webkit-animation-delay:.5s;
+	-moz-animation-delay:.5s;
+	-ms-animation-delay:.5s;
+	-o-animation-delay:.5s;
+	animation-delay:.5s;
+}
+
+h2{
+	text-align:center;
+}
+
+@-webkit-keyframes guy{
+	0%{
+		-webkit-transform: rotate(0deg);
+	}
+	10%{
+		-webkit-transform: rotate(10deg);	
+	}
+	20%{
+		-webkit-transform: rotate(0deg);
+	}
+	75%{
+		-webkit-transform: rotate(70deg);
+	}
+	90%{
+		-webkit-transform: rotate(90deg);
+	}
+	96%{
+		-webkit-transform: rotate(85deg);
+	}
+	100%{
+		-webkit-transform: rotate(90deg);
+	}
+}
+
+@-moz-keyframes guy{
+	0%{
+		-moz-transform: rotate(0deg);
+	}
+	10%{
+		-moz-transform: rotate(10deg);	
+	}
+	20%{
+		-moz-transform: rotate(0deg);
+	}
+	75%{
+		-moz-transform: rotate(70deg);
+	}
+	90%{
+		-moz-transform: rotate(90deg);
+	}
+	96%{
+		-moz-transform: rotate(85deg);
+	}
+	100%{
+		-moz-transform: rotate(90deg);
+	}
+}
+@-o-keyframes guy{
+	0%{
+		-o-transform: rotate(0deg);
+	}
+	10%{
+		-o-transform: rotate(10deg);	
+	}
+	20%{
+		-o-transform: rotate(0deg);
+	}
+	75%{
+		-o-transform: rotate(70deg);
+	}
+	90%{
+		-o-transform: rotate(90deg);
+	}
+	96%{
+		-o-transform: rotate(85deg);
+	}
+	100%{
+		-o-transform: rotate(90deg);
+	}
+}
+
+@-ms-keyframes guy{
+	0%{
+		-ms-transform: rotate(0deg);
+	}
+	10%{
+		-ms-transform: rotate(10deg);	
+	}
+	20%{
+		-ms-transform: rotate(0deg);
+	}
+	75%{
+		-ms-transform: rotate(70deg);
+	}
+	90%{
+		-ms-transform: rotate(90deg);
+	}
+	96%{
+		-ms-transform: rotate(85deg);
+	}
+	100%{
+		-ms-transform: rotate(90deg);
+	}
+}
+
+@keyframes guy{
+	0%{
+		transform: rotate(0deg);
+	}
+	10%{
+		transform: rotate(10deg);	
+	}
+	20%{
+		transform: rotate(0deg);
+	}
+	75%{
+		transform: rotate(70deg);
+	}
+	90%{
+		transform: rotate(90deg);
+	}
+	96%{
+		transform: rotate(85deg);
+	}
+	100%{
+		transform: rotate(90deg);
+	}
+}
