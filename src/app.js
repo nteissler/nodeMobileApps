@@ -80,7 +80,7 @@ function setUserCookies(req,res,next) {
 
 	console.log(user);
 
-	res.cookie('user', user);
+	res.cookie('user', JSON.stringify(user));
 
 	next();
 }

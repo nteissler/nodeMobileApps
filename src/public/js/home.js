@@ -12,6 +12,10 @@
  /***									 ***/
 
 $(document).ready(function(){
+
+	$.cookie.json = true;
+
+	var user = $.cookie('user');
 	
 	if(eventstring == "touchend"){
 		var fullstring = "touchstart touchend";	
