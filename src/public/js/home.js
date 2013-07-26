@@ -6,6 +6,7 @@
    		eventstring = "touchend";
    	}else{
    		eventstring = "click";
+   		// eventstring = "touchend"; //for testing touch events in chrome
    }
 
  /***									 ***/
@@ -28,7 +29,7 @@ $(document).ready(function(){
 
 		if(!$(e.target).is("button") && e.type != "touchstart"){
 			if(e.type == "touchend"){
-				if(Math.abs(e.originalEvent.touches[0].pageY - eventCache.startY) > 10){
+				if(Math.abs(e.originalEvent.changedTouches[0].pageY - eventCache.startY) < 10){
 					showDialogByApp($(this), '/templates/app_detail.ejs');					
 				}
 			}else{
