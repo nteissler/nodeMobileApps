@@ -77,21 +77,35 @@ $(document).ready(function(){
 	}
 
 
-	$(".platform").on('click',function(e){
+	$(".platform").on(eventstring,function(e){
 		filterPlatform($(this).text());
+		$('.filterMessage').text("Apps for: " + $(this).text());
+		$('.filterStatus').show();
 	});
+
+	$(".filterStatus").hide();
+
+	$(".showAll").on(eventstring,function(){
+		$(".filterStatus").hide();
+		filterPlatform("");
+	});
+
+
 })
 
 
 var filterPlatform = function(platform){
 	var formattedPlatform = platform.trim().toLowerCase();
 	$(".app").each(function(){
+		if (platform==="") $(this).show();
 		//alert($(this).data('platform') + "..."+formattedPlatform);
-		if($(this).data("platform").toLowerCase()!==formattedPlatform){
+		else if($(this).data("platform").toLowerCase()!==formattedPlatform){
 			$(this).hide();	
-		} else{
+		} else if($(this).data("platform").toLowerCase()===formattedPlatform) {
 			$(this).show();
 		}
+			
+		
 	});
 }
 
