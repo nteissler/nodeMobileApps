@@ -3,19 +3,39 @@
    	var el = document.createElement('div');
    	el.setAttribute('ongesturestart', 'return;');
    	if(typeof el.ongesturestart === "function"){
-   		eventstring = "touchstart";
+   		eventstring = "touchend";
    	}else{
    		eventstring = "click";
+   		// eventstring = "touchend"; //for testing touch events in chrome
    }
 
  /***									 ***/
 
 $(document).ready(function(){
 	
-	$(".list .app").on(eventstring, function(e){
-		if(!$(e.target).is("button")){
+	if(eventstring == "touchend"){
+		var fullstring = "touchstart touchend";	
+	}else{
+		fullstring = eventstring;
+	}
+	
+	var eventCache = {
+		startY: null
+	}
+	$(".list .app").on(fullstring, function(e){
+		if(e.type == "touchstart"){
+			eventCache.startY = e.originalEvent.touches[0].pageY;
+		}
 
-			showDialogByApp($(this), '/templates/app_detail.ejs');			
+		if(!$(e.target).is("button") && e.type != "touchstart"){
+			if(e.type == "touchend"){
+				if(Math.abs(e.originalEvent.changedTouches[0].pageY - eventCache.startY) < 10){
+					showDialogByApp($(this), '/templates/app_detail.ejs');					
+				}
+			}else{
+				showDialogByApp($(this), '/templates/app_detail.ejs');
+			}
+			
 		}
 	});
 
