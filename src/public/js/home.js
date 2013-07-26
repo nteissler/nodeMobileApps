@@ -97,8 +97,10 @@ $(document).ready(function(){
 	}
 
 
-	$(".platform").on(eventstring,function(e){
+	$(".platform").on(eventstring, function(e){
 		filterPlatform($(this).text());
+		$(".platform").removeClass("active");
+		$(this).addClass("active");
 		$('.filterMessage').text("Apps for: " + $(this).text());
 		$('.filterStatus').show();
 	});
@@ -107,6 +109,7 @@ $(document).ready(function(){
 
 	$(".showAll").on(eventstring,function(){
 		$(".filterStatus").hide();
+		$(".platform").removeClass("active");
 		filterPlatform("");
 	});
 
