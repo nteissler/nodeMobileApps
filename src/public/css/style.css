@@ -50,6 +50,11 @@
 
 /* CSS */
 
+*{
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+}
+
 body:not(.admin) .admin{
 	/*display:none !important;*/
 }
