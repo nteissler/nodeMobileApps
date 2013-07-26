@@ -18,7 +18,7 @@ exports.submit = function(appDir){
 		var versionNum = req.body.release.version;
 		var releaseNotes = req.body.release.notes;
 		var appFile = req.files.release.file;
-		var id = new ObjectID(req.body.app.id) || '';
+		var id = new ObjectID(req.body.app.id) || new ObjectID();
 
 		if(appFile.size !==0){
 		var appPath = join(appDir,appFile.name);
@@ -34,10 +34,12 @@ exports.submit = function(appDir){
 				file: appPath
 			};
 
+			database.find(apps,{_id:id},{},function(err,appArray){
+				var release = appArray[0];
+			}
+			}
+			res.redirect('/');
 
-		//database.insert('apps', releaseMongo, function(err, results){	
-		//	res.redirect('/');
-		//});
 		//upload the mongo object
 		//save files to sc3
 		
