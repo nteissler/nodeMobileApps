@@ -22,6 +22,7 @@ module.exports.edit = function(req,res,next) {
 module.exports.new = function(req, res, next) {
 
 	var app = {
+		_id: '',
 		name : '',
 		description : '',
 		icon : null,
