@@ -45,6 +45,7 @@ app.get('/api/seed', routes.api.seed);
 app.get('/api/apps', routes.api.apps);
 app.get('/api/apps/:id', routes.api.appById);
 
+app.get('/apps/new', routes.partials.new);
 app.get('/apps/:id/details', routes.partials.appDetail);
 app.get('/apps/:id/newRelease', routes.partials.newRelease);
 app.get('/apps/:id/edit', routes.partials.edit);

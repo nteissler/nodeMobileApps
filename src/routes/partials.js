@@ -19,6 +19,27 @@ module.exports.edit = function(req,res,next) {
 
 };
 
+module.exports.new = function(req, res, next) {
+
+	var app = {
+		name : '',
+		description : '',
+		icon : null,
+		platform : '',
+		clientWorkingGroup : '',
+		security : {
+			development : true,
+			secured : false,
+			passcode : '',
+			hidden : false
+		},
+		current : null,
+		releases : []
+	};
+
+	res.render('edit', {app:app});
+};
+
 var searchAndRender = function(req, res, pageName) {
 
 	var user = req.user || { username : 'default', isAdmin : false };

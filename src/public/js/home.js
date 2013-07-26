@@ -92,7 +92,7 @@ $(document).ready(function(){
 				}
 			};
 			
-			renderDialog("/templates/setup.ejs", app);			
+			showDialog('/apps/new');
 	} );
 	}
 
