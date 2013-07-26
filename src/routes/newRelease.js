@@ -34,7 +34,7 @@ exports.submit = function(appDir){
 				file: appPath
 			};
 
-			database.find(apps,{_id:id},{},function(err,appArray){
+			/*database.find(apps,{_id:id},{},function(err,appArray){
 				var release = appArray[0];
 			}
 			}
