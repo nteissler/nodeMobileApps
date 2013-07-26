@@ -40,3 +40,8 @@ var searchAndRender = function(query, user, response) {
 module.exports.admin = function(request, response, next) {
 	response.render('login');
 };
+
+module.exports.logout = function(req,res,next) {
+	req.logout();
+	res.redirect('/');
+}
