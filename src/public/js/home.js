@@ -3,7 +3,7 @@
    	var el = document.createElement('div');
    	el.setAttribute('ongesturestart', 'return;');
    	if(typeof el.ongesturestart === "function"){
-   		eventstring = "touchstart";
+   		eventstring = "touchend";
    	}else{
    		eventstring = "click";
    }
