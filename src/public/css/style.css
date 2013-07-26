@@ -297,6 +297,11 @@ textarea{
 	border-radius:10px;
 }
 
+.filterStatus{
+	box-sizing:border-box;
+	padding:15px 15px 10px 15px;
+}
+
 body.dialog  #dialog{
 	-webkit-transition: opacity .6s, z-index 0s;
 	-moz-transition: opacity .6s, z-index 0s;
