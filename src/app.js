@@ -50,7 +50,7 @@ app.get('/apps/:id/details', routes.partials.appDetail);
 app.get('/apps/:id/newRelease', routes.partials.newRelease);
 
 app.get('/apps/:name', routes.home.named);
-app.get("/apps/:name/:platform", routes.home.namedByPlatform);
+app.get("/apps/:name/platform/:platform", routes.home.namedByPlatform);
 
 // Generic catch all route
 app.get(/^(.+)$/, function(req, res,next) {
