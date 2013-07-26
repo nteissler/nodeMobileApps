@@ -29,8 +29,8 @@
 						<button class="admin" data-action="edit" data-id="<%=apps[i]._id%>">Edit</button>
 						<button class="admin" data-action="newVersion" data-id="<%=apps[i]._id%>">New Version</button>
 					<%}%>
-					<% if( !apps[i].security.secured) { %>
-						<button class="install">Install</button>
+					<% if( !apps[i].security.secured && apps[i].current) { %>
+						<button onclick="window.location='<%= apps[i].current.file %>'" class="install">Install</button>
 					<% } %>
 				</div>
 			<% } %>

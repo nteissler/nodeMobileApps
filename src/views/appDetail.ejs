@@ -23,7 +23,7 @@
 			<div class="notes">
 				<%- app.current.notes %>
 			</div>
-			<button class="install">Install</button>
+			<button onclick="window.location='<%= app.current.file %>'" class="install">Install</button>
 		</div>
 		<h3>Past releases</h3>
 		<div class="releases">
