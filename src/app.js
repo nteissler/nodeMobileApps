@@ -1,4 +1,6 @@
 var express = require('express');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var routes = require('./routes');
 var lib = require('./lib');
 
@@ -21,8 +23,13 @@ app.set("localAppFolder",__dirname+'/public/appStorage');
 app.set("localIconFolder",__dirname+'/public/iconStorage');
 
 app.use(express.bodyParser());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/', routes.home);
+app.get('/admin', routes.home.admin );
+app.get('/authenticate', passport.authenticate('local', {session:true, successRedirect: '/', failureRedirect: '/admin' }));
+
 //change the app.get to upload to SC3
 app.post('/release',routes.newRelease.submit(app.get('localAppFolder')));
 app.post('/setup',routes.setup.submit(app.get('localIconFolder')));
@@ -41,4 +48,21 @@ app.get(/^(.+)$/, function(req, res,next) {
 		res.status(404);
 		res.render('404');
 	});
+});
+
+passport.use('local', new LocalStrategy( function(username, password, done) {
+
+	if( ( username != 'admin') || ( password != '@dm1n' ) ) {
+		return done(null, false);
+	} else {
+		return done( null, { username : 'Admin', isAdmin: true } );
+	}
+}));
+
+passport.serializeUser(function(user, done) {
+	done(null, user);
+});
+
+passport.deserializeUser(function( user, done ){
+	done( null, user );
 });
