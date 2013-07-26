@@ -52,7 +52,7 @@ app.get('/app/:id/details', routes.partials.appDetail);
 app.get('/app/:id/newRelease', ensureAuthenticated, routes.partials.newRelease);
 app.get('/app/:id/edit', ensureAuthenticated, routes.partials.edit);
 app.get('/app/:id/delete', ensureAuthenticated, routes.home.delete );
-app.get('/app/:id/authenticate', routes.partials.authenticate);
+app.post('/app/:id/authenticate', routes.partials.authenticate);
 
 app.get('/apps/:name', routes.home.named);
 app.get("/apps/:name/platform/:platform", routes.home.namedByPlatform);

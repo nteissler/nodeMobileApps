@@ -50,7 +50,9 @@ exports.submit = function(iconDir, iconURL){
 					var updating = appArray[0];
 					updating.name = appName;
 					updating.description = appDesc;
-					updating.icon = join(iconURL, iconFile.name);
+					// If the icon has been changed, then set it to the new icon,
+					//  otherwise go ahead and keep the current icon
+					updating.icon = ( iconFile.size !== 0 ) ? join(iconURL, iconFile.name) : updating.icon;
 					updating.platform = appPlat;
 					updating.clientWorkingGroup = appGroup;
 					updating.security = {

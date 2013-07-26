@@ -12,7 +12,7 @@ module.exports.appDetail = function(req,res,next) {
 		}
 
 		if( ( app.security.secured === true ) && ( !req.isAuthenticated() ) ) {
-			res.render('appAuthentication');
+			res.render('appAuthentication', {app:app});
 		} else {
 			res.render('appDetail', {app:app, user:user});	
 		}
@@ -23,7 +23,8 @@ module.exports.appDetail = function(req,res,next) {
 module.exports.authenticate = function(req,res,next) {
 
 	var password = req.body.password; 
-
+	var user = getUser(req);
+	
 	getApp(req, function(err, app) {
 
 		if(err) {
@@ -31,7 +32,7 @@ module.exports.authenticate = function(req,res,next) {
 		}
 
 		if(password != app.security.passcode) {
-			res.render('appAuthentication');
+			res.render('appAuthentication', {app:app});
 		} else {
 			res.render('appDetail', {app:app, user:user});	
 		}
