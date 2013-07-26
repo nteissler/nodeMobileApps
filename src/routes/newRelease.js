@@ -21,11 +21,16 @@ exports.submit = function(appDir){
 		var id = (req.body.release.id!=="")? new ObjectID(req.body.release.id): new ObjectID();
 
 		if(appFile.size !==0){
-		var appPath = join(appDir,appFile.name);
-		//save the files to proper location
-		fs.rename(appFile.path,appPath,function(err){
-			if(err) return next(err);
-		});
+			var appPath = join(appDir,appFile.name);
+
+
+			//insert app into s3 here
+			//save the files to proper location
+			//the if statement around this should be taken out
+			//becuase use shouldn't be able to submit form without attaching file
+			fs.rename(appFile.path,appPath,function(err){
+				if(err) return next(err);
+			});
 		}
 
 		var releaseMongo = {
@@ -45,9 +50,7 @@ exports.submit = function(appDir){
 			database.update('apps', doc, function(err, results){	
 						res.redirect('/');
 			});
-			//database.insertRelease('apps',{_id: id},{$addToSet:{"releases":oldRelease}});
-
-
 		});
+
 	}
 }

@@ -14,7 +14,6 @@ var ObjectID = require('mongodb').ObjectID;
 
 exports.submit = function(iconDir){
 	return function(req,res,next){
-		//read in data from first app setup
 		var iconFile = req.files.app.icon;
 		var appName = req.body.app.name;
 		var appDesc = req.body.app.desc;
@@ -27,15 +26,20 @@ exports.submit = function(iconDir){
 
 		var id = (req.body.app.id!=="")? new ObjectID(req.body.app.id): new ObjectID();
 
-		if(iconFile.size !== 0){//if statement for debugging
+		if(iconFile.size !== 0){
 			var iconPath = join(iconDir,iconFile.name);
-			//save the files to proper location
+			/*save the icon to s3 here
+			this if statement shouldn't be necessary later on because
+			user can't submit form without submitting an icon
+			*/
 
 
 			fs.rename(iconFile.path,iconPath,function(err){
 				if(err) return next(err);
 			});
 		}
+
+
 
 		if(req.body.app.id!='') {
 			database.find('apps',{_id : id},{},function(err,appArray){
