@@ -1,0 +1,44 @@
+<div class="new-release">
+
+	<h2>New Release for <%=app.name%></h2>
+
+
+
+	<h3><% if(app.security.development) { %>
+			Development
+		<% } else { %>
+			Production
+			<% } %>
+		—<%=(app.current==null)? "No Releases" : "Current Version: "+ app.current.version%>
+		
+	</h3>
+
+
+	<div class="info">
+		
+	<form method='post' action = '/release' enctype='multipart/form-data'>	
+		<div data-property="Release Version">
+			<input type="text" name='release[version]'>
+		</div>
+		
+		<div data-property="Release Notes">
+			<textarea type="text" name='release[notes]'></textarea>
+		</div>
+		
+		<div data-property="New App Package">
+			<input type="file" name='release[file]'>
+		</div>
+		
+		<div>
+			<textarea type='text' hidden name='release[id]'><%=app.id%></textarea>
+		</div>
+		
+			<input type='submit' value='Add Release'/></p>
+			
+
+
+	</form>
+
+	</div>
+	
+</div>

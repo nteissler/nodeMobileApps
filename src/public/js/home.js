@@ -34,10 +34,10 @@ $(document).ready(function(){
 		if(!$(e.target).is("button") && e.type != "touchstart"){
 			if(e.type == "touchend"){
 				if(Math.abs(e.originalEvent.changedTouches[0].pageY - eventCache.startY) < 10){
-					showDialogByApp($(this), '/partial/app_detail');					
+					showDialogByApp($(this), '/apps/:id/details');					
 				}
 			}else{
-				showDialogByApp($(this), '/partial/app_detail');
+				showDialogByApp($(this), '/apps/:id/details');
 			}
 			
 		}
@@ -51,7 +51,7 @@ $(document).ready(function(){
 				showDialogByApp($(this),'/templates/setup.ejs');
 				break;
 			case "newVersion":
-				showDialogByApp($(this),'/templates/newRelease.ejs');
+				showDialogByApp($(this),'/apps/:id/newRelease');
 				break;
 		}
 	});
@@ -140,7 +140,7 @@ var showDialogByApp = function( element, templateUrl ) {
 
 	var id = element.data('id');
 
-	showDialog(templateUrl + '/' + id);
+	showDialog(templateUrl.replace(':id', id));
 }
 
 var showDialog = function(templateUrl) {
