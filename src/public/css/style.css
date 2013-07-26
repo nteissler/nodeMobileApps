@@ -112,7 +112,7 @@ button.close{
 	width:30px;
 	height:30px;
 	padding:0;
-	background:url(../images/close.png) no-repeat;
+	background:url(/images/close.png) no-repeat;
 	background-size:100% 100%;
 }
 
@@ -134,7 +134,7 @@ header h1{
 	padding-left:74px;
 	padding-top: .3em;
 	height:60px;
-	background:url(../images/mobileapps-logo.png) no-repeat;
+	background:url(/images/mobileapps-logo.png) no-repeat;
 	background-size: auto 100%;
 	box-sizing:border-box;
 }
