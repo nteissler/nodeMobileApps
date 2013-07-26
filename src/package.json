@@ -29,7 +29,9 @@
     "ejs"       :  "*",
     "require-directory"    :  "*",
     "mongodb"   :  "*",
-    "underscore" : "*"
+    "underscore" : "*",
+    "passport": "0.1.x",
+    "passport-local": "0.1.x"
   },
   "analyze": false,
   "license": "MIT",
