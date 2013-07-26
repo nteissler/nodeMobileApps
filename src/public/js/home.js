@@ -103,7 +103,7 @@ $(document).ready(function(){
 		$('.filterStatus').show();
 	});
 
-	$(".filterStatus").hide();
+	$('.filterStatus').hide();	
 
 	$(".showAll").on(eventstring,function(){
 		$(".filterStatus").hide();
@@ -116,7 +116,7 @@ $(document).ready(function(){
 
 var filterPlatform = function(platform){
 	var formattedPlatform = platform.trim().toLowerCase();
-	$(".app").each(function(){
+	$(".list .app").each(function(){
 		if (platform==="") $(this).show();
 		//alert($(this).data('platform') + "..."+formattedPlatform);
 		else if($(this).data("platform").toLowerCase()!==formattedPlatform){
