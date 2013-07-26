@@ -39,7 +39,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$(".list, #dialog").on(eventstring, ".admin",function(e){
+	$(".list, #dialog").on(eventstring, ".admin", function(e){
 		var id = $(this).attr('data-id');
 		switch($(e.target).attr("data-action")){
 			
@@ -48,6 +48,9 @@ $(document).ready(function(){
 				break;
 			case "newVersion":
 				showDialogByApp($(this),'/apps/:id/newRelease');
+				break;
+			case "delete":
+				deletePrompt($(this));
 				break;
 		}
 	});
@@ -74,24 +77,6 @@ $(document).ready(function(){
 		});
 
 		$("nav .admin").on(eventstring, function() {
-			var app = { 
-				app : {
-					name : '',
-					description : '',
-					icon : null,
-					platform : '',
-					clientWorkingGroup : '',
-					security : {
-						development : true,
-						secured : false,
-						passcode : '',
-						hidden : false
-					},
-					current : null,
-					releases : []
-				}
-			};
-			
 			showDialog('/apps/new');
 	} );
 	}
@@ -156,11 +141,12 @@ var showDialog = function(templateUrl) {
 	});
 }
 
-var renderDialog = function( templateUrl, data )  {
+var deletePrompt(element) {
+	
+	var response = confirm('Are you sure you want to delete this app?');
+	if( response === true ) {
+		var id = element.data('id');
 
-	$('#content').html("<div class='loading'></div>");
-
-	$("#content").html(new EJS({url: templateUrl}).render(data));
-
-	$("body").addClass("dialog");
+		window.location.href = '/apps/' + id + '/delete'; 
+	}
 }

@@ -45,7 +45,7 @@ var database = {
 		getCollection(collectionName, function(err,collection){
 			collection.save(document,func);
 		});
-	}
+	},
 
 	delete : function(collectionName, id, func) {
 		getCollection(collectionName, function(err, collection) {
