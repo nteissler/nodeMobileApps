@@ -13,20 +13,24 @@ var port = process.argv[2] || process.env.PORT;
 
 server.listen(port);
 
-app.set('view engine', 'ejs');
-app.set('views', __dirname + '/views');
-app.engine('html', require('ejs').__express);
-app.use(express.static(__dirname + '/public'));
-app.use("/design", express.static(__dirname + '/design'));
+// Configuration
+app.configure(function(){
+	app.set('view engine', 'ejs');
+	app.set('views', __dirname + '/views');
+	app.engine('html', require('ejs').__express);
+	app.use(express.static(__dirname + '/public'));
+	app.use("/design", express.static(__dirname + '/design'));
 
-app.set("localAppFolder",__dirname+'/public/appStorage');
-app.set("localIconFolder",__dirname+'/public/iconStorage');
+	app.set("localAppFolder",__dirname+'/public/appStorage');
+	app.set("localIconFolder",__dirname+'/public/iconStorage');
 
-app.use(express.bodyParser());
-app.use(express.cookieParser());
-app.use(express.session({secret: 'turner'}));
-app.use(passport.initialize());
-app.use(passport.session());
+	app.use(express.bodyParser());
+	app.use(express.cookieParser());
+	app.use(express.session({secret: 'turner', cookie: { httpOnly: false }}));
+	app.use(passport.initialize());
+	app.use(passport.session());
+	app.use(app.router);
+});
 
 app.get('/', routes.home);
 app.get('/admin', routes.home.admin );
@@ -37,13 +41,17 @@ app.get('/logout', routes.home.logout );
 app.post('/release',routes.newRelease.submit(app.get('localAppFolder')));
 app.post('/setup',routes.setup.submit(app.get('localIconFolder')));
 
-
 app.get('/api/seed', routes.api.seed);
 app.get('/api/apps', routes.api.apps);
 app.get('/api/apps/:id', routes.api.appById);
 
+app.get('/apps/new', routes.partials.new);
+app.get('/apps/:id/details', routes.partials.appDetail);
+app.get('/apps/:id/newRelease', routes.partials.newRelease);
+app.get('/apps/:id/edit', routes.partials.edit);
+
 app.get('/apps/:name', routes.home.named);
-app.get("/apps/:name/:platform", routes.home.namedByPlatform);
+app.get("/apps/:name/platform/:platform", routes.home.namedByPlatform);
 
 // Generic catch all route
 app.get(/^(.+)$/, function(req, res,next) {

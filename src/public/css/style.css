@@ -307,6 +307,18 @@ textarea{
 	padding:15px 15px 10px 15px;
 }
 
+.platform a{
+	-webkit-transition: color .3s;
+	-moz-transition: color .3s;
+	-o-transition: color .3s;
+	-ms-transition: color .3s;
+	transition: color .3s;
+}
+
+.platform.active a{
+	color:#ffae15;
+}
+
 body.dialog  #dialog{
 	-webkit-transition: opacity .6s, z-index 0s;
 	-moz-transition: opacity .6s, z-index 0s;

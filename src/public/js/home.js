@@ -12,7 +12,7 @@
  /***									 ***/
 
 $(document).ready(function(){
-	
+
 	if(eventstring == "touchend"){
 		var fullstring = "touchstart touchend";	
 	}else{
@@ -30,10 +30,10 @@ $(document).ready(function(){
 		if(!$(e.target).is("button") && e.type != "touchstart"){
 			if(e.type == "touchend"){
 				if(Math.abs(e.originalEvent.changedTouches[0].pageY - eventCache.startY) < 10){
-					showDialogByApp($(this), '/templates/app_detail.ejs');					
+					showDialogByApp($(this), '/apps/:id/details');					
 				}
 			}else{
-				showDialogByApp($(this), '/templates/app_detail.ejs');
+				showDialogByApp($(this), '/apps/:id/details');
 			}
 			
 		}
@@ -44,10 +44,10 @@ $(document).ready(function(){
 		switch($(e.target).attr("data-action")){
 			
 			case "edit":
-				showDialogByApp($(this),'/templates/setup.ejs');
+				showDialogByApp($(this),'/apps/:id/edit');
 				break;
 			case "newVersion":
-				showDialogByApp($(this),'/templates/newRelease.ejs');
+				showDialogByApp($(this),'/apps/:id/newRelease');
 				break;
 		}
 	});
@@ -92,13 +92,15 @@ $(document).ready(function(){
 				}
 			};
 			
-			renderDialog("/templates/setup.ejs", app);			
+			showDialog('/apps/new');
 	} );
 	}
 
 
-	$(".platform").on(eventstring,function(e){
+	$(".platform").on(eventstring, function(e){
 		filterPlatform($(this).text());
+		$(".platform").removeClass("active");
+		$(this).addClass("active");
 		$('.filterMessage').text("Apps for: " + $(this).text());
 		$('.filterStatus').show();
 	});
@@ -107,6 +109,7 @@ $(document).ready(function(){
 
 	$(".showAll").on(eventstring,function(){
 		$(".filterStatus").hide();
+		$(".platform").removeClass("active");
 		filterPlatform("");
 	});
 
@@ -133,16 +136,24 @@ var showDialogByApp = function( element, templateUrl ) {
 
 	var id = element.data('id');
 
-	showDialog(templateUrl, '/api/apps/' + id);
+	showDialog(templateUrl.replace(':id', id));
 }
 
-var showDialog = function( templateUrl, ajaxUrl ) {
+var showDialog = function(templateUrl) {
 
 	$('#content').html("<div class='loading'></div>");
 
-	var template = new EJS({url: templateUrl}).update('content', ajaxUrl);
-
 	$("body").addClass("dialog");
+
+	$.ajax({
+		url: templateUrl,
+		success: function(html) {
+			$('#content').html(html);
+		},
+		error: function() {
+			$('#content').html('<span>Whoops, something went wrong</span>');
+		}
+	});
 }
 
 var renderDialog = function( templateUrl, data )  {
