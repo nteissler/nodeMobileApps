@@ -30,10 +30,10 @@ $(document).ready(function(){
 		if(!$(e.target).is("button") && e.type != "touchstart"){
 			if(e.type == "touchend"){
 				if(Math.abs(e.originalEvent.changedTouches[0].pageY - eventCache.startY) < 10){
-					showDialogByApp($(this), '/apps/:id/details');					
+					showDialogByApp($(this), '/app/:id/details');					
 				}
 			}else{
-				showDialogByApp($(this), '/apps/:id/details');
+				showDialogByApp($(this), '/app/:id/details');
 			}
 			
 		}
@@ -41,18 +41,18 @@ $(document).ready(function(){
 
 	$(".list, #dialog").on(eventstring, "button.admin", function(e){
 		var id = $(this).attr('data-id');
-		switch($(e.target).attr("data-action")){
-			
+		switch($(e.target).attr("data-action")) {
 			case "edit":
-				showDialogByApp($(this),'/apps/:id/edit');
+				showDialogByApp($(this),'/app/:id/edit');
 				break;
 			case "newVersion":
-				showDialogByApp($(this),'/apps/:id/newRelease');
+				showDialogByApp($(this),'/app/:id/newRelease');
 				break;
 			case "delete":
 				deletePrompt($(this));
-				break;
+				break;			
 		}
+
 	});
 
 
@@ -77,7 +77,7 @@ $(document).ready(function(){
 		});
 
 		$("nav .admin").on(eventstring, function() {
-			showDialog('/apps/new');
+			showDialog('/app/new');
 	} );
 	}
 
@@ -147,6 +147,6 @@ var deletePrompt = function(element) {
 	if( response === true ) {
 		var id = element.data('id');
 
-		window.location.href = '/apps/' + id + '/delete'; 
+		windo.location.href = '/app/' + id + '/delete'; 
 	}
 }
