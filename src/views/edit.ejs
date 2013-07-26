@@ -1,6 +1,6 @@
 <div class="edit">
 
-	<h2 class="image" style="background-image:url(<%= app.icon%>)"><%= app.name != '' ? app.name : 'Create a new app' %></h2>		
+	<h2 class="image" style="background-image:url(<%= app.icon ? app.icon : '/images/app-icon-default.png' %>)"><%= app.name != '' ? app.name : 'Create a new app' %></h2>		
 
 	<form method='post' action = '/setup' enctype='multipart/form-data'>
 
