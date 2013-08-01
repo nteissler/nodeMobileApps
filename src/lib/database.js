@@ -31,24 +31,36 @@ var database = {
 
 	find : function( collectionName, query, sort, func ) {
 		getCollection(collectionName, function(err,collection){
+			if(err){
+				console.error(err);
+			}
 			collection.find(query).sort(sort).toArray(func);
 		});
 	},
 
 	insert : function( collectionName, document, func ) {
 		getCollection(collectionName, function(err,collection){
+			if(err){
+				console.error(err);
+			}
 			collection.insert(document,func);
 		});
 	},
 
 	update : function(collectionName,document,func) {
 		getCollection(collectionName, function(err,collection){
+			if(err){
+				console.error(err);
+			}
 			collection.save(document,func);
 		});
 	},
 
 	delete : function(collectionName, id, func) {
 		getCollection(collectionName, function(err, collection) {
+			if(err){
+				console.error(err);
+			}
 			collection.remove( { _id: id }, true, func );
 		});
 	}
