@@ -11,7 +11,7 @@ module.exports.named = function(request,response,next) {
 
 	var query = { name: new RegExp(request.params.name, 'i') };
 
-	searchAndRender(query, request.user, response);
+	searchAndRender(query, request.user, response, request);
 }
 
 module.exports.namedByPlatform = function(request, response, next) {
@@ -21,10 +21,10 @@ module.exports.namedByPlatform = function(request, response, next) {
 		platform: request.params.platform
 	};
 
-	searchAndRender(query, request.user, response);
+	searchAndRender(query, request.user, response, request);
 }
 
-var searchAndRender = function(query, user, response) {
+var searchAndRender = function(query, user, response, request) {
 
 	user = _.isUndefined(user) ? {isAdmin:false} : user;
 
@@ -33,7 +33,11 @@ var searchAndRender = function(query, user, response) {
 		if( (apps) && (_.isArray(apps)) && (apps.length > 1)) {
 			response.render('home', {apps:apps, user:user});
 		} else {
-			response.render('app', {app:apps[0], user:user});
+			if( ( apps[0].security.secured === true ) && ( !request.isAuthenticated() ) ) {
+				response.render('appAuthentication', {app:apps[0]});
+			} else {
+				response.render('app', {app:apps[0], user:user});	
+			}
 		}
 	});
 }

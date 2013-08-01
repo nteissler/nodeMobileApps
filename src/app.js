@@ -55,7 +55,7 @@ app.get('/app/:id/delete', ensureAuthenticated, routes.home.delete );
 app.post('/app/:id/authenticate', routes.partials.authenticate);
 
 app.get('/apps/:name', routes.home.named);
-app.get("/apps/:name/platform/:platform", routes.home.namedByPlatform);
+app.get("/apps/:name/:platform", routes.home.namedByPlatform);
 
 // Generic catch all route
 app.get(/^(.+)$/, function(req, res,next) {
