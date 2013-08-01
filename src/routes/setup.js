@@ -71,7 +71,7 @@ exports.submit = function(iconDir, iconURL){
 			var appMongo = { 
 	                name : appName,
 	                description : appDesc,
-	                icon : join(iconURL, iconFile.name),
+	                icon : ( iconFile.size !== 0 ) ? join(iconURL, iconFile.name) : null,
 	                platform : appPlat,
 	                clientWorkingGroup : appGroup,
 	                security: {

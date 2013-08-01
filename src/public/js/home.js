@@ -149,7 +149,7 @@ var deletePrompt = function(element) {
 	if( response === true ) {
 		var id = element.data('id');
 
-		windo.location.href = '/app/' + id + '/delete'; 
+		window.location.href = '/app/' + id + '/delete'; 
 	}
 }
 

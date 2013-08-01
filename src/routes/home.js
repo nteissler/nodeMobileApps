@@ -51,7 +51,7 @@ module.exports.admin = function(request, response, next) {
 
 module.exports.logout = function(req,res,next) {
 	req.logout();
-	res.redirect('/');
+	res.redirect(req.headers.referer);
 }
 
 module.exports.delete = function(req,res,next) {
@@ -63,7 +63,7 @@ module.exports.delete = function(req,res,next) {
 		if(err) {
 			next(err);
 		} else {
-			res.redirect('/');
+			res.redirect(req.headers.referer);
 		}
 	});
 
