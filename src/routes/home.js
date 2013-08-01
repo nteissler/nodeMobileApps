@@ -32,12 +32,15 @@ var searchAndRender = function(query, user, response, request) {
 
 		if( (apps) && (_.isArray(apps)) && (apps.length > 1)) {
 			response.render('home', {apps:apps, user:user});
-		} else {
+		} else if(apps.length == 1){
 			if( ( apps[0].security.secured === true ) && ( !request.isAuthenticated() ) ) {
 				response.render('appAuthentication', {app:apps[0]});
 			} else {
 				response.render('app', {app:apps[0], user:user});	
 			}
+		} else {
+			response.status(404);
+			response.render('404');	
 		}
 	});
 }
