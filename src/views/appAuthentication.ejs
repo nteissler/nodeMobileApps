@@ -1,30 +1,14 @@
 <% include head %>
 
-	<script type="text/javascript">
+	<form class="authenticate" action="javascript: submit('<%= app._id %>')">
 
-		function submit() {
-
-			$.ajax({
-				'url': '/app/<%= app._id %>/authenticate',
-				'data': 'password=\'' + $("#password").val() + '\'',
-			    'type': 'POST',
-			    'processData': false,
-			    success: function(html) {
-			    	$('#dialog').html(html);
-			    }
-			});
-		}
-
-	</script>
-
-	<form class="authenticate" >
 		<h2>Enter Passcode</h2>
 
 		<div data-property='Secret Passcode'>
 			<input name='password' id='password' type='password' />
 		</div>
 		
-		<button onclick='submit();'>Submit</button>
+		<button>Submit</button>
 
 	</form>
 

@@ -22,6 +22,8 @@ module.exports.appDetail = function(req,res,next) {
 
 module.exports.authenticate = function(req,res,next) {
 
+	console.log("AUTHENTICATING")
+
 	var password = req.body.password; 
 	var user = getUser(req);
 	
@@ -32,8 +34,10 @@ module.exports.authenticate = function(req,res,next) {
 		}
 
 		if(password != app.security.passcode) {
+			console.log("incorrect password!");
 			res.render('appAuthentication', {app:app});
 		} else {
+			console.log("rendering app detail!");
 			res.render('appDetail', {app:app, user:user});	
 		}
 	});

@@ -651,7 +651,7 @@ body.dialog  #dialog{
 
 /*** AUTHENTICATION ***/
 
-form.authenticate{
+.authenticate{
 	width:30%;
 	height:auto;
 	display:block;
@@ -665,11 +665,12 @@ body > .authenticate{
 	box-shadow: -4px 4px 38px 5px rgba(0,0,0,.4);	
 }
 
-form.authenticate input[type="Submit"]{
+.authenticate input[type="Submit"]{
 	margin-top:1em;
 }
 
 @media screen and (max-width: 42em) {
-	form.authenticate{
-	width:85%;
+	.authenticate{
+		width:85%;
+	}
 }

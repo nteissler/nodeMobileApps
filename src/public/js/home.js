@@ -98,6 +98,8 @@ $(document).ready(function(){
 		filterPlatform("");
 	});
 
+	$(".authenticate input").on("keydown")
+
 
 })
 
@@ -149,4 +151,30 @@ var deletePrompt = function(element) {
 
 		windo.location.href = '/app/' + id + '/delete'; 
 	}
+}
+
+function submit(appID) {
+
+
+	$.ajax({
+		'url': '/app/'+appID+'/authenticate',
+		'data': { 
+			password: $("#password").val()
+		},
+	    'type': 'POST',
+	    // 'processData': false,
+	    success: function(html) {
+	    	var container = $("#dialog").length > 0 ? $("#dialog") : null;
+	    	if(container){
+	    		$('#dialog #content').html(html);	
+	    	}else{
+	    		$(".authenticate").remove();
+	    		var app = $('<div class="application"></div>');
+	    		app.append(html);
+	    		$("body").append(app);
+	    	}
+	    }
+	});
+
+	return false;
 }
