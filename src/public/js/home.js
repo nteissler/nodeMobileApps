@@ -34,8 +34,7 @@ $(document).ready(function(){
 				}
 			}else{
 				showDialogByApp($(this), '/app/:id/details');
-			}
-			
+			}			
 		}
 	});
 
@@ -57,7 +56,7 @@ $(document).ready(function(){
 
 
 	$("#dialog").on(eventstring, ".close", function(e){
-		$("body").removeClass("dialog");
+		closeDialog();
 	});
 
 	$("#dialog, .application").on(eventstring, ".releases .release", function(e){
@@ -104,6 +103,13 @@ $(document).ready(function(){
 })
 
 
+var closeDialog = function(){
+	$("body").removeClass("dialog");
+	window.history.back();
+}
+
+
+
 var filterPlatform = function(platform){
 	var formattedPlatform = platform.trim().toLowerCase();
 	$(".list .app").each(function(){
@@ -124,6 +130,9 @@ var showDialogByApp = function( element, templateUrl ) {
 	var id = element.data('id');
 
 	showDialog(templateUrl.replace(':id', id));
+	console.log('/apps/'+element.find("h3").html()+"/"+element.data("platform"));
+
+	window.history.pushState({}, element.find("h3").html()+" | "+element.data("platform"), '/apps/'+element.find("h3").html()+"/"+element.data("platform"));
 }
 
 var showDialog = function(templateUrl) {
