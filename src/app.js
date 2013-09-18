@@ -67,7 +67,7 @@ app.get(/^(.+)$/, function(req, res,next) {
 
 passport.use('local', new LocalStrategy( function(username, password, done) {
 
-	if( ( username != 'admin') || ( password != '@dm1n' ) ) {
+	if( ( username != 'redacted') || ( password != 'redacted' ) ) {
 		return done(null, false);
 	} else {
 		return done( null, { username : 'Admin', isAdmin: true } );
